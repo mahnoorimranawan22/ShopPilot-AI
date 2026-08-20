@@ -1,0 +1,55 @@
+# Render Blueprint — ShopPilot AI Backend
+# https://render.com/docs/blueprint-spec
+
+services:
+  # ─── Backend API ───────────────────────────────────────────
+  - type: web
+    name: shoppilot-ai-backend
+    runtime: node
+    plan: starter
+    region: oregon
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    healthCheckPolicy:
+      responseTimeoutSeconds: 60
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false  # Set manually from MongoDB Atlas
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CORS_ORIGIN
+        sync: false  # Set to your Vercel frontend URL
+      - key: GROQ_API_KEY
+        sync: false  # Set manually from Groq console
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+  # ─── Frontend (optional — use Vercel instead) ──────────────
+  # Uncomment below only if deploying frontend on Render too.
+  # Vercel is recommended for Next.js.
+  #
+  # - type: web
+  #   name: shoppilot-ai-frontend
+  #   runtime: node
+  #   plan: starter
+  #   region: oregon
+  #   rootDir: .
+  #   buildCommand: npm install && npm run build
+  #   startCommand: npm start
+  #   envVars:
+  #     - key: NEXT_PUBLIC_API_URL
+  #       value: https://shoppilot-ai-backend.onrender.com
+  #     - key: NEXT_PUBLIC_SOCKET_URL
+  #       value: https://shoppilot-ai-backend.onrender.com

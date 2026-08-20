@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ShopPilot AI - Hero Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; margin: 0; padding: 20px; background: #fff; }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; color: #64748b; margin-bottom: 20px;">Hero Section Preview</h2>
+        
+        <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+            <!-- Main Hero Card -->
+            <div style="flex: 1; min-width: 500px; position: relative; display: flex; flex-direction: column; background: linear-gradient(135deg, #eef2ff 0%, #fff 50%, #f5f3ff 100%); border: 1px solid #e0e7ff; border-radius: 24px; min-height: 400px; overflow: hidden;">
+                <div style="position: relative; padding: 64px; z-index: 10;">
+                    <!-- Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(199, 210, 254, 0.8); color: #4338ca; padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 500;">
+                        ✨ AI-Powered Shopping Experience
+                    </div>
+                    
+                    <!-- Headline -->
+                    <h1 style="font-size: 48px; line-height: 1.1; margin: 24px 0; font-weight: 700;">
+                        <span style="color: #1e293b;">Shop smarter with</span><br/>
+                        <span style="background: linear-gradient(to right, #4f46e5, #8b5cf6, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI.</span>
+                    </h1>
+                    
+                    <!-- Description -->
+                    <p style="color: #64748b; font-size: 18px; line-height: 1.6; max-width: 450px; margin-bottom: 40px;">
+                        Discover products personalized to you and make better purchasing decisions with intelligent recommendations.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="/shop" style="display: inline-flex; align-items: center; gap: 8px; background: #4f46e5; color: white; padding: 14px 32px; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none;">
+                            Explore Products →
+                        </a>
+                        <button style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #334155; padding: 14px 32px; border-radius: 999px; font-size: 14px; font-weight: 500; border: 1px solid #e2e8f0; cursor: pointer;">
+                            ✨ Ask ShopPilot AI
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <img src="http://localhost:3002/hero_model_img.png" style="position: absolute; bottom: 0; right: 40px; max-width: 400px; opacity: 0.9;" alt="Hero Model" />
+            </div>
+            
+            <!-- Side Cards -->
+            <div style="display: flex; flex-direction: column; gap: 20px; width: 300px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #f3e8ff, #faf5ff); border: 1px solid rgba(196, 181, 253, 0.5); border-radius: 24px; padding: 24px 32px;">
+                    <div>
+                        <p style="font-size: 28px; font-weight: 700; background: linear-gradient(to right, #1e293b, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Best products</p>
+                        <p style="margin-top: 16px; color: #7c3aed; font-weight: 500; font-size: 14px;">View more →</p>
+                    </div>
+                    <img src="http://localhost:3002/hero_product_img1.png" style="width: 120px;" alt="Product 1" />
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #cffafe, #ecfeff); border: 1px solid rgba(103, 232, 249, 0.5); border-radius: 24px; padding: 24px 32px;">
+                    <div>
+                        <p style="font-size: 28px; font-weight: 700; background: linear-gradient(to right, #1e293b, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">20% discounts</p>
+                        <p style="margin-top: 16px; color: #0891b2; font-weight: 500; font-size: 14px;">View more →</p>
+                    </div>
+                    <img src="http://localhost:3002/hero_product_img2.png" style="width: 120px;" alt="Product 2" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

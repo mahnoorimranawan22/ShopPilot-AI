@@ -1,0 +1,6 @@
+# Freebuff logs
+.freebuff/
+
+# OS files
+.DS_Store
+Thumbs.db

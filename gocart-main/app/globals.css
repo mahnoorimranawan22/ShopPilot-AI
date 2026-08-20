@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@layer components {
+    @keyframes marqueeScroll {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}
+
+@layer base {
+    button {
+        cursor: pointer;
+    }
+}
+
+:root {
+    --brand-primary: #6366f1;
+    --brand-primary-hover: #4f46e5;
+    --brand-accent: #22d3ee;
+    --brand-accent-dark: #06b6d4;
+    --brand-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
