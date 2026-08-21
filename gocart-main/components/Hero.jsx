@@ -56,7 +56,7 @@ const Hero = () => {
                             </motion.span>
                             <motion.span
                                 variants={fadeUp}
-                                className='bg-gradient-to-r from-orange-500 via-rose-500 to-orange-500 bg-clip-text text-transparent inline-block'
+                                className="text-orange-500 inline-block"
                             >
                                 AI.
                             </motion.span>
@@ -107,7 +107,7 @@ const Hero = () => {
                     >
                         <Link href='/shop' className='flex-1 flex items-center justify-between w-full bg-gradient-to-br from-rose-100 to-rose-50 border border-rose-200/50 rounded-3xl p-6 px-8 group hover:shadow-lg hover:shadow-rose-500/10 transition-all duration-300'>
                             <div>
-                                <p className='text-3xl font-bold bg-gradient-to-r from-slate-800 to-rose-500 bg-clip-text text-transparent max-w-40'>Best products</p>
+                                <p className="text-3xl font-bold max-w-40 text-rose-500">Best products</p>
                                 <p className='flex items-center gap-1 mt-4 text-rose-600 font-medium'>View more <ArrowRightIcon className='group-hover:ml-2 transition-all' size={18} /> </p>
                             </div>
                             <img className='w-35' src={assets.hero_product_img1} alt="" />
@@ -120,7 +120,7 @@ const Hero = () => {
                     >
                         <Link href='/shop' className='flex-1 flex items-center justify-between w-full bg-gradient-to-br from-cyan-100 to-cyan-50 border border-cyan-200/50 rounded-3xl p-6 px-8 group hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300'>
                             <div>
-                                <p className='text-3xl font-bold bg-gradient-to-r from-slate-800 to-cyan-500 bg-clip-text text-transparent max-w-40'>20% discounts</p>
+                                <p className='text-3xl font-bold max-w-40 text-cyan-500'>20% discounts</p>
                                 <p className='flex items-center gap-1 mt-4 text-cyan-600 font-medium'>View more <ArrowRightIcon className='group-hover:ml-2 transition-all' size={18} /> </p>
                             </div>
                             <img className='w-35' src={assets.hero_product_img2} alt="" />

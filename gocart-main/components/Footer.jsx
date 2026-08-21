@@ -54,7 +54,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-200 text-slate-500">
                     <div>
                         <Link href="/" className="text-3xl font-bold tracking-tight text-slate-800 flex items-center gap-0">
-                            <span className="bg-gradient-to-r from-orange-500 to-rose-500 bg-clip-text text-transparent">Shop</span>
+                            <span className="text-orange-500">Shop</span>
                             <span className="text-slate-700">Pilot</span>
                             <span className="ml-1.5 text-xs font-bold px-2 py-0.5 bg-orange-500 text-white rounded-md leading-none mt-1">AI</span>
                         </Link>

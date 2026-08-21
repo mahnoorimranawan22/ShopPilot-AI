@@ -17,7 +17,7 @@ export default function NavbarWrapper() {
                 <div className="mx-6">
                     <div className="flex items-center justify-between max-w-7xl mx-auto py-4 transition-all">
                         <a href="/" className="relative text-3xl font-bold tracking-tight text-slate-800 flex items-center gap-0">
-                            <span className="bg-gradient-to-r from-orange-500 to-rose-500 bg-clip-text text-transparent">Shop</span>
+                            <span className="text-orange-500">Shop</span>
                             <span className="text-slate-700">Pilot</span>
                             <span className="ml-1.5 text-xs font-bold px-2 py-0.5 bg-orange-500 text-white rounded-md leading-none mt-1">AI</span>
                         </a>

@@ -11,6 +11,12 @@
     }
 }
 
+.bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @layer base {
     button {
         cursor: pointer;
