@@ -4,16 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
     SparklesIcon, SendIcon, XIcon, BotIcon, UserIcon,
     ArrowRightIcon, StarIcon, ShoppingCartIcon, TrendingUpIcon,
-    ChevronRightIcon, Loader2Icon, MessageCircleIcon
+    ChevronRightIcon, Loader2Icon, MessageCircleIcon, MicIcon
 } from 'lucide-react'
 import { aiAPI } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useVoiceSearch } from './ui/useVoiceSearch'
 
 // ─── Product Recommendation Card ─────────────────────────────
 function ProductCard({ product, index, rank }) {
     const rankColors = {
-        'Top pick': 'from-indigo-500 to-violet-500',
+        'Top pick': 'from-orange-500 to-rose-500',
         'Runner-up': 'from-emerald-500 to-teal-500',
         'Also great': 'from-amber-500 to-orange-500',
     }
@@ -23,7 +24,7 @@ function ProductCard({ product, index, rank }) {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: index * 0.15, duration: 0.4, ease: 'easeOut' }}
-            className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-100 transition-all duration-300 overflow-hidden"
+            className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-100 transition-all duration-300 overflow-hidden"
         >
             {/* Rank Badge */}
             <div className={`absolute top-3 left-3 z-10 px-2.5 py-1 bg-gradient-to-r ${rankColors[rank] || rankColors['Top pick']} text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg`}>
@@ -46,8 +47,8 @@ function ProductCard({ product, index, rank }) {
                 <div
                     className={`${product.image ? 'hidden' : 'flex'} w-full h-full items-center justify-center`}
                 >
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-100 to-violet-100 flex items-center justify-center">
-                        <SparklesIcon className="w-8 h-8 text-indigo-400" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-100 to-rose-100 flex items-center justify-center">
+                        <SparklesIcon className="w-8 h-8 text-orange-400" />
                     </div>
                 </div>
 
@@ -63,7 +64,7 @@ function ProductCard({ product, index, rank }) {
             {/* Content */}
             <div className="p-4">
                 {/* Brand */}
-                <p className="text-[11px] font-semibold text-indigo-500 uppercase tracking-wider mb-1">{product.brand}</p>
+                <p className="text-[11px] font-semibold text-orange-500 uppercase tracking-wider mb-1">{product.brand}</p>
 
                 {/* Name */}
                 <h4 className="text-sm font-bold text-slate-800 line-clamp-2 mb-2 leading-snug">{product.productName}</h4>
@@ -87,7 +88,7 @@ function ProductCard({ product, index, rank }) {
                 {product.highlights && product.highlights.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mb-3">
                         {product.highlights.slice(0, 3).map((h, i) => (
-                            <span key={i} className="text-[10px] font-medium bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full">
+                            <span key={i} className="text-[10px] font-medium bg-orange-50 text-orange-500 px-2 py-0.5 rounded-full">
                                 {h}
                             </span>
                         ))}
@@ -97,7 +98,7 @@ function ProductCard({ product, index, rank }) {
                 {/* CTA */}
                 <Link
                     href={`/product/${product.productName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 group/link"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-orange-500 hover:text-orange-600 group/link"
                 >
                     View Details
                     <ChevronRightIcon size={14} className="group-hover/link:translate-x-0.5 transition-transform" />
@@ -111,7 +112,7 @@ function ProductCard({ product, index, rank }) {
 function TypingIndicator() {
     return (
         <div className="flex items-start gap-3 mb-4">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/25">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/25">
                 <BotIcon size={16} className="text-white" />
             </div>
             <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
@@ -119,7 +120,7 @@ function TypingIndicator() {
                     <motion.div
                         animate={{ opacity: [0.4, 1, 0.4] }}
                         transition={{ duration: 1.2, repeat: Infinity, delay: 0 }}
-                        className="w-2 h-2 rounded-full bg-indigo-400"
+                        className="w-2 h-2 rounded-full bg-orange-400"
                     />
                     <motion.div
                         animate={{ opacity: [0.4, 1, 0.4] }}
@@ -129,7 +130,7 @@ function TypingIndicator() {
                     <motion.div
                         animate={{ opacity: [0.4, 1, 0.4] }}
                         transition={{ duration: 1.2, repeat: Infinity, delay: 0.4 }}
-                        className="w-2 h-2 rounded-full bg-indigo-400"
+                        className="w-2 h-2 rounded-full bg-orange-400"
                     />
                 </div>
             </div>
@@ -144,7 +145,7 @@ function SuggestionChip({ suggestion, onClick }) {
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onClick(suggestion.text)}
-            className="flex items-center gap-2 bg-white border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/50 text-slate-700 hover:text-indigo-700 text-xs font-medium px-3 py-2 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md whitespace-nowrap"
+            className="flex items-center gap-2 bg-white border border-slate-100 hover:border-orange-200 hover:bg-orange-50/50 text-slate-700 hover:text-orange-600 text-xs font-medium px-3 py-2 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md whitespace-nowrap"
         >
             <span className="text-base">{suggestion.icon}</span>
             <span className="line-clamp-1">{suggestion.text}</span>
@@ -247,6 +248,17 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
         }
     }
 
+    // Voice search for AI chat
+    const handleVoiceResult = useCallback((text) => {
+        setInputValue(text)
+        // Auto-send the voice query to AI
+        setTimeout(() => handleSend(text), 300)
+    }, [])
+
+    const { isListening, isSupported: voiceSupported, toggleListening } = useVoiceSearch({
+        onResult: handleVoiceResult,
+    })
+
     // Welcome message
     const welcomeMessage = {
         role: 'assistant',
@@ -278,14 +290,14 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
                         className="fixed inset-4 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[440px] sm:max-h-[700px] z-50 bg-slate-50 rounded-3xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden border border-slate-200"
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-indigo-600 via-violet-500 to-indigo-600 px-5 py-4 flex items-center justify-between flex-shrink-0">
+                        <div className="bg-gradient-to-r from-orange-500 via-rose-500 to-orange-500 px-5 py-4 flex items-center justify-between flex-shrink-0">
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
                                     <SparklesIcon size={20} className="text-white" />
                                 </div>
                                 <div>
                                     <h3 className="text-white font-bold text-sm">ShopPilot AI</h3>
-                                    <p className="text-indigo-100 text-[11px]">Your smart shopping assistant</p>
+                                    <p className="text-orange-100 text-[11px]">Your smart shopping assistant</p>
                                 </div>
                             </div>
                             <button
@@ -303,7 +315,7 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
                                     {msg.role === 'user' ? (
                                         /* User Message */
                                         <div className="flex items-start gap-2.5 justify-end mb-4">
-                                            <div className="bg-indigo-600 text-white text-sm px-4 py-2.5 rounded-2xl rounded-tr-md max-w-[85%] shadow-lg shadow-indigo-500/10">
+                                            <div className="bg-orange-500 text-white text-sm px-4 py-2.5 rounded-2xl rounded-tr-md max-w-[85%] shadow-lg shadow-orange-500/10">
                                                 {msg.content}
                                             </div>
                                             <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0">
@@ -313,7 +325,7 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
                                     ) : (
                                         /* Assistant Message */
                                         <div className="flex items-start gap-2.5 mb-4">
-                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/25">
+                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/25">
                                                 <BotIcon size={16} className="text-white" />
                                             </div>
                                             <div className="flex-1 min-w-0">
@@ -346,9 +358,9 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
                                                     <div className="mt-3 space-y-3">
                                                         {/* Insight badge */}
                                                         {msg.insights && (
-                                                            <div className="flex items-center gap-2 bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-100 rounded-xl px-3 py-2">
-                                                                <TrendingUpIcon size={14} className="text-indigo-500" />
-                                                                <span className="text-[11px] font-medium text-indigo-600">
+                                                            <div className="flex items-center gap-2 bg-gradient-to-r from-orange-50 to-rose-50 border border-orange-100 rounded-xl px-3 py-2">
+                                                                <TrendingUpIcon size={14} className="text-orange-500" />
+                                                                <span className="text-[11px] font-medium text-orange-500">
                                                                     Found {msg.insights.totalMatches} match{msg.insights.totalMatches > 1 ? 'es' : ''}
                                                                     {msg.insights.priceRange && (
                                                                         <> · ${msg.insights.priceRange.min.toFixed(0)} – ${msg.insights.priceRange.max.toFixed(0)}</>
@@ -404,7 +416,7 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
 
                         {/* Input */}
                         <div className="px-4 pb-4 pt-2 bg-white border-t border-slate-100 flex-shrink-0">
-                            <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-2xl px-4 py-2 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
+                            <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-2xl px-4 py-2 focus-within:border-orange-300 focus-within:ring-2 focus-within:ring-orange-100 transition-all">
                                 <input
                                     ref={inputRef}
                                     type="text"
@@ -415,12 +427,34 @@ export default function AIAssistant({ isOpen, onClose, initialQuery }) {
                                     className="flex-1 bg-transparent text-sm text-slate-700 placeholder-slate-400 outline-none"
                                     disabled={isLoading}
                                 />
+                                {/* Voice search button */}
+                                {voiceSupported && (
+                                    <motion.button
+                                        type="button"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            e.stopPropagation()
+                                            toggleListening()
+                                        }}
+                                        className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                            isListening
+                                                ? 'bg-red-500 text-white shadow-lg shadow-red-500/30 animate-pulse'
+                                                : 'bg-slate-100 text-slate-500 hover:bg-orange-50 hover:text-orange-500'
+                                        }`}
+                                        title={isListening ? 'Listening...' : 'Speak your request'}
+                                    >
+                                        <MicIcon size={16} />
+                                    </motion.button>
+                                )}
+
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => handleSend()}
                                     disabled={!inputValue.trim() || isLoading}
-                                    className="w-9 h-9 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 disabled:opacity-40 disabled:shadow-none hover:shadow-xl transition-all"
+                                    className="w-9 h-9 rounded-xl bg-gradient-to-r from-orange-500 to-rose-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/25 disabled:opacity-40 disabled:shadow-none hover:shadow-xl transition-all"
                                 >
                                     {isLoading ? (
                                         <Loader2Icon size={16} className="animate-spin" />

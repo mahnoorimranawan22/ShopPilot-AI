@@ -13,7 +13,7 @@ export default function LiveOrderFeed({ storeId }) {
                 id: data.orderId,
                 type: 'new',
                 icon: ShoppingBagIcon,
-                color: 'text-indigo-600 bg-indigo-50',
+                color: 'text-orange-500 bg-orange-50',
                 title: `New Order ${data.orderNumber}`,
                 subtitle: `$${data.total} from ${data.customer}`,
                 items: data.items,

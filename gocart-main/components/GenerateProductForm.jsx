@@ -19,15 +19,15 @@ function ContentCard({ label, icon: Icon, content, onCopy, field }) {
     }
 
     return (
-        <div className="bg-white border border-slate-100 rounded-xl p-4 hover:border-indigo-100 transition-colors">
+        <div className="bg-white border border-slate-100 rounded-xl p-4 hover:border-orange-100 transition-colors">
             <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                    <Icon size={14} className="text-indigo-500" />
+                    <Icon size={14} className="text-orange-500" />
                     <span className="text-xs font-semibold text-slate-600">{label}</span>
                 </div>
                 <button
                     onClick={handleCopy}
-                    className="flex items-center gap-1 text-[10px] font-medium text-slate-400 hover:text-indigo-600 transition-colors"
+                    className="flex items-center gap-1 text-[10px] font-medium text-slate-400 hover:text-orange-500 transition-colors"
                 >
                     {copied ? <><CheckIcon size={12} className="text-green-500" /> Copied</> : <><CopyIcon size={12} /> Copy</>}
                 </button>
@@ -41,8 +41,8 @@ function ContentCard({ label, icon: Icon, content, onCopy, field }) {
 function FeatureInput({ value, onChange, onRemove, index }) {
     return (
         <div className="flex items-center gap-2 group">
-            <div className="flex-1 flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-50 transition-all">
-                <span className="text-[10px] font-bold text-indigo-400 w-4">{index + 1}</span>
+            <div className="flex-1 flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 focus-within:border-orange-300 focus-within:ring-2 focus-within:ring-orange-50 transition-all">
+                <span className="text-[10px] font-bold text-orange-400 w-4">{index + 1}</span>
                 <input
                     type="text"
                     value={value}
@@ -136,13 +136,13 @@ export default function GenerateProductForm({ onApply }) {
     }
 
     return (
-        <div className="bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 rounded-2xl p-6 overflow-hidden relative">
+        <div className="bg-gradient-to-br from-orange-50 via-white to-rose-50 border border-orange-100 rounded-2xl p-6 overflow-hidden relative">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-200/20 to-violet-200/20 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-200/20 to-rose-200/20 rounded-full -translate-y-1/2 translate-x-1/2" />
 
             {/* Header */}
             <div className="relative flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
                     <SparklesIcon size={20} className="text-white" />
                 </div>
                 <div>
@@ -159,7 +159,7 @@ export default function GenerateProductForm({ onApply }) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder='e.g. "Wireless Headphones" or "Organic Green Tea"'
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 transition-all"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100 transition-all"
                 />
             </div>
 
@@ -169,7 +169,7 @@ export default function GenerateProductForm({ onApply }) {
                     <label className="text-xs font-semibold text-slate-600">Features & Specifications</label>
                     <button
                         onClick={() => setShowAdvanced(!showAdvanced)}
-                        className="flex items-center gap-1 text-[10px] text-indigo-500 hover:text-indigo-600"
+                        className="flex items-center gap-1 text-[10px] text-orange-500 hover:text-orange-500"
                     >
                         {showAdvanced ? <ChevronUpIcon size={12} /> : <ChevronDownIcon size={12} />}
                         {showAdvanced ? 'Less' : 'More features'}
@@ -191,7 +191,7 @@ export default function GenerateProductForm({ onApply }) {
                 {features.length < 10 && (
                     <button
                         onClick={addFeature}
-                        className="mt-2 flex items-center gap-1.5 text-xs font-medium text-indigo-500 hover:text-indigo-600 transition-colors"
+                        className="mt-2 flex items-center gap-1.5 text-xs font-medium text-orange-500 hover:text-orange-500 transition-colors"
                     >
                         <PlusIcon size={14} />
                         Add feature
@@ -211,7 +211,7 @@ export default function GenerateProductForm({ onApply }) {
                                 if (emptyIdx >= 0) updateFeature(emptyIdx, feat)
                                 else addFeature(), updateFeature(features.length, feat)
                             }}
-                            className="text-[10px] font-medium bg-white border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50 text-slate-600 hover:text-indigo-600 px-2.5 py-1 rounded-full transition-all"
+                            className="text-[10px] font-medium bg-white border border-slate-100 hover:border-orange-200 hover:bg-orange-50 text-slate-600 hover:text-orange-500 px-2.5 py-1 rounded-full transition-all"
                         >
                             + {feat}
                         </button>
@@ -225,7 +225,7 @@ export default function GenerateProductForm({ onApply }) {
                 whileTap={{ scale: 0.99 }}
                 onClick={handleGenerate}
                 disabled={!name.trim() || isLoading}
-                className="relative w-full bg-gradient-to-r from-indigo-600 via-violet-500 to-indigo-600 text-white font-semibold text-sm py-3 rounded-xl shadow-lg shadow-indigo-500/25 disabled:opacity-50 disabled:shadow-none hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                className="relative w-full bg-gradient-to-r from-orange-500 via-rose-500 to-orange-500 text-white font-semibold text-sm py-3 rounded-xl shadow-lg shadow-orange-500/25 disabled:opacity-50 disabled:shadow-none hover:shadow-xl transition-all flex items-center justify-center gap-2"
             >
                 {isLoading ? (
                     <>
@@ -258,7 +258,7 @@ export default function GenerateProductForm({ onApply }) {
                             {onApply && (
                                 <button
                                     onClick={handleApply}
-                                    className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-colors"
+                                    className="text-xs font-semibold text-orange-500 hover:text-orange-600 bg-orange-50 hover:bg-orange-100 px-3 py-1.5 rounded-lg transition-colors"
                                 >
                                     Apply All to Product →
                                 </button>
@@ -268,12 +268,12 @@ export default function GenerateProductForm({ onApply }) {
                         {/* Auto-detected fields */}
                         <div className="flex flex-wrap gap-2">
                             {result.category && (
-                                <span className="text-[10px] font-medium bg-indigo-50 text-indigo-600 px-2.5 py-1 rounded-full">
+                                <span className="text-[10px] font-medium bg-orange-50 text-orange-500 px-2.5 py-1 rounded-full">
                                     📁 {result.category}
                                 </span>
                             )}
                             {result.brand && (
-                                <span className="text-[10px] font-medium bg-violet-50 text-violet-600 px-2.5 py-1 rounded-full">
+                                <span className="text-[10px] font-medium bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full">
                                     🏷️ {result.brand}
                                 </span>
                             )}
@@ -293,7 +293,7 @@ export default function GenerateProductForm({ onApply }) {
                         {/* Tags */}
                         <div className="bg-white border border-slate-100 rounded-xl p-4">
                             <div className="flex items-center gap-2 mb-2">
-                                <TagIcon size={14} className="text-indigo-500" />
+                                <TagIcon size={14} className="text-orange-500" />
                                 <span className="text-xs font-semibold text-slate-600">Tags</span>
                             </div>
                             <div className="flex flex-wrap gap-1.5">

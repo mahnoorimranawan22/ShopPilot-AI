@@ -101,12 +101,12 @@ const ProductDescription = ({ product }) => {
                                     onChange={(e) => setNewReview(e.target.value)}
                                     placeholder="Share your experience with this product..."
                                     rows={3}
-                                    className="flex-1 p-3 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 resize-none"
+                                    className="flex-1 p-3 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 resize-none"
                                 />
                                 <button
                                     type="submit"
                                     disabled={submitting || !newReview.trim()}
-                                    className="self-end bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition disabled:opacity-50 flex items-center gap-1"
+                                    className="self-end bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600 transition disabled:opacity-50 flex items-center gap-1"
                                 >
                                     <SendIcon size={14} />
                                     {submitting ? '...' : 'Post'}
@@ -133,7 +133,7 @@ const ProductDescription = ({ product }) => {
                         <div className="flex flex-col gap-3">
                             {reviews.map((item, index) => (
                                 <div key={index} className="flex gap-5 mb-8 pb-8 border-b border-slate-100 last:border-0">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-bold shrink-0 overflow-hidden">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-xs font-bold shrink-0 overflow-hidden">
                                         {item.user?.image ? (
                                             <Image src={item.user.image} alt="" width={40} height={40} className="w-full h-full object-cover" />
                                         ) : (
@@ -167,7 +167,7 @@ const ProductDescription = ({ product }) => {
             {/* Store Page */}
             {product.store && (
                 <div className="flex gap-3 mt-14">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-bold overflow-hidden shrink-0">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-xs font-bold overflow-hidden shrink-0">
                         {product.store.logo ? (
                             <Image src={product.store.logo} alt="" width={100} height={100} className="w-full h-full object-cover" />
                         ) : (
@@ -176,7 +176,7 @@ const ProductDescription = ({ product }) => {
                     </div>
                     <div>
                         <p className="font-medium text-slate-600">Product by {product.store.name}</p>
-                        <Link href={`/shop/${product.store.username}`} className="flex items-center gap-1.5 text-indigo-500"> view store <ArrowRight size={14} /></Link>
+                        <Link href={`/shop/${product.store.username}`} className="flex items-center gap-1.5 text-orange-500"> view store <ArrowRight size={14} /></Link>
                     </div>
                 </div>
             )}

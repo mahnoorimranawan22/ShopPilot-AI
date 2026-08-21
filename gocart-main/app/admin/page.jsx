@@ -155,11 +155,11 @@ export default function AdminDashboard() {
             {/* Tables */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
                 {/* Top Stores */}
-                <SectionCard title="Top Stores" subtitle="By revenue" action={<button onClick={() => router.push('/admin/stores')} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">View all →</button>}>
+                <SectionCard title="Top Stores" subtitle="By revenue" action={<button onClick={() => router.push('/admin/stores')} className="text-xs text-orange-500 hover:text-orange-600 font-medium">View all →</button>}>
                     <div className="space-y-3">
                         {data.topStores.map((store, i) => (
                             <div key={i} className="flex items-center gap-4 p-3 bg-slate-50 rounded-lg">
-                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-sm font-bold shrink-0">
+                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-sm font-bold shrink-0">
                                     {i + 1}
                                 </div>
                                 <div className="flex-1 min-w-0">
@@ -173,7 +173,7 @@ export default function AdminDashboard() {
                 </SectionCard>
 
                 {/* Recent Orders */}
-                <SectionCard title="Recent Orders" action={<button onClick={() => router.push('/admin/coupons')} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">All orders →</button>}>
+                <SectionCard title="Recent Orders" action={<button onClick={() => router.push('/admin/coupons')} className="text-xs text-orange-500 hover:text-orange-600 font-medium">All orders →</button>}>
                     <div className="space-y-3">
                         {data.recentOrders.map((order, i) => (
                             <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
@@ -194,7 +194,7 @@ export default function AdminDashboard() {
             </div>
 
             {/* Pending Stores */}
-            <SectionCard title="Recent Store Applications" action={<button onClick={() => router.push('/admin/approve')} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">Review all →</button>}>
+            <SectionCard title="Recent Store Applications" action={<button onClick={() => router.push('/admin/approve')} className="text-xs text-orange-500 hover:text-orange-600 font-medium">Review all →</button>}>
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                         <thead>

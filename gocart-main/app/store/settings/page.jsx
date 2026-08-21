@@ -50,27 +50,27 @@ export default function StoreSettings() {
                 <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-5">
                     <div>
                         <label className="text-sm font-medium text-slate-600 mb-1.5 block">Store Name</label>
-                        <input value={storeName} onChange={e => setStoreName(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition" />
+                        <input value={storeName} onChange={e => setStoreName(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition" />
                     </div>
                     <div>
                         <label className="text-sm font-medium text-slate-600 mb-1.5 block">Description</label>
-                        <textarea value={storeDesc} onChange={e => setStoreDesc(e.target.value)} rows={3} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition resize-none" />
+                        <textarea value={storeDesc} onChange={e => setStoreDesc(e.target.value)} rows={3} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition resize-none" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label className="text-sm font-medium text-slate-600 mb-1.5 block">Email</label>
-                            <input value={storeEmail} onChange={e => setStoreEmail(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition" />
+                            <input value={storeEmail} onChange={e => setStoreEmail(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition" />
                         </div>
                         <div>
                             <label className="text-sm font-medium text-slate-600 mb-1.5 block">Contact</label>
-                            <input value={storeContact} onChange={e => setStoreContact(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition" />
+                            <input value={storeContact} onChange={e => setStoreContact(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition" />
                         </div>
                     </div>
                     <div>
                         <label className="text-sm font-medium text-slate-600 mb-1.5 block">Address</label>
-                        <input value={storeAddress} onChange={e => setStoreAddress(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition" />
+                        <input value={storeAddress} onChange={e => setStoreAddress(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition" />
                     </div>
-                    <button onClick={handleSave} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                    <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition">
                         <SaveIcon size={16} /> Save Changes
                     </button>
                 </div>
@@ -98,7 +98,7 @@ export default function StoreSettings() {
                             </div>
                         </label>
                     ))}
-                    <button onClick={handleSave} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition mt-4">
+                    <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition mt-4">
                         <SaveIcon size={16} /> Save Preferences
                     </button>
                 </div>
@@ -110,13 +110,13 @@ export default function StoreSettings() {
                     <h3 className="text-sm font-semibold text-slate-700">Change Password</h3>
                     <div>
                         <label className="text-sm font-medium text-slate-600 mb-1.5 block">Current Password</label>
-                        <input type="password" value={currentPassword} onChange={e => setCurrentPassword(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition" />
+                        <input type="password" value={currentPassword} onChange={e => setCurrentPassword(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition" />
                     </div>
                     <div>
                         <label className="text-sm font-medium text-slate-600 mb-1.5 block">New Password</label>
-                        <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 transition" />
+                        <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 transition" />
                     </div>
-                    <button onClick={handlePasswordChange} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                    <button onClick={handlePasswordChange} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition">
                         <ShieldIcon size={16} /> Update Password
                     </button>
                 </div>

@@ -41,7 +41,7 @@ export default function StoreInventory() {
             {/* Summary Cards */}
             <div className="grid grid-cols-3 gap-4 mt-6">
                 <div className="bg-white border border-slate-200 rounded-xl p-5 text-center">
-                    <PackageIcon size={24} className="mx-auto text-indigo-500 mb-2" />
+                    <PackageIcon size={24} className="mx-auto text-orange-500 mb-2" />
                     <p className="text-2xl font-bold text-slate-800">{totalStock}</p>
                     <p className="text-xs text-slate-500">Total Units in Stock</p>
                 </div>

@@ -6,6 +6,7 @@ import Link from "next/link"
 import toast from "react-hot-toast"
 import { registerUser, clearError } from "@/lib/features/user/userSlice"
 import { EyeIcon, EyeOffIcon, MailIcon, LockIcon, UserIcon } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function Register() {
 
@@ -54,7 +55,11 @@ export default function Register() {
     }
 
     return (
-        <div className="min-h-[80vh] mx-6 flex items-center justify-center py-8">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="min-h-[80vh] mx-6 flex items-center justify-center py-8">
             <div className="w-full max-w-md">
                 {/* Header */}
                 <div className="text-center mb-8">
@@ -79,7 +84,7 @@ export default function Register() {
                                 onChange={(e) => setName(e.target.value)}
                                 placeholder="Alex Morgan"
                                 required
-                                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+                                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
                             />
                         </div>
                     </div>
@@ -95,7 +100,7 @@ export default function Register() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="you@example.com"
                                 required
-                                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+                                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
                             />
                         </div>
                     </div>
@@ -112,7 +117,7 @@ export default function Register() {
                                 placeholder="Create a strong password"
                                 required
                                 minLength={6}
-                                className="w-full pl-10 pr-10 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+                                className="w-full pl-10 pr-10 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
                             />
                             <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
                                 {showPassword ? <EyeOffIcon size={16} /> : <EyeIcon size={16} />}
@@ -132,7 +137,7 @@ export default function Register() {
                                 placeholder="Re-enter your password"
                                 required
                                 minLength={6}
-                                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+                                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
                             />
                         </div>
                         {password && confirmPassword && password !== confirmPassword && (
@@ -142,12 +147,12 @@ export default function Register() {
 
                     {/* Terms */}
                     <label className="flex items-start gap-2 cursor-pointer">
-                        <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-1 accent-indigo-600" />
+                        <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-1 accent-orange-500" />
                         <span className="text-xs text-slate-500">
                             I agree to the{' '}
-                            <button type="button" className="text-indigo-600 hover:underline">Terms of Service</button>
+                            <button type="button" className="text-orange-500 hover:underline">Terms of Service</button>
                             {' '}and{' '}
-                            <button type="button" className="text-indigo-600 hover:underline">Privacy Policy</button>
+                            <button type="button" className="text-orange-500 hover:underline">Privacy Policy</button>
                         </span>
                     </label>
 
@@ -155,7 +160,7 @@ export default function Register() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-indigo-600 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-60 transition flex items-center justify-center gap-2"
+                        className="w-full bg-orange-500 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 disabled:opacity-60 transition flex items-center justify-center gap-2"
                     >
                         {loading ? (
                             <>
@@ -191,11 +196,11 @@ export default function Register() {
                 {/* Sign in link */}
                 <p className="text-center text-sm text-slate-500 mt-6">
                     Already have an account?{' '}
-                    <Link href="/login" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                    <Link href="/login" className="text-orange-500 hover:text-orange-600 font-medium">
                         Sign in
                     </Link>
                 </p>
             </div>
-        </div>
+        </motion.div>
     )
 }

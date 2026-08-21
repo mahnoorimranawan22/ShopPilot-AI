@@ -35,7 +35,7 @@ export default function NotificationBadge({ className = '' }) {
 
     return (
         <div className={`relative inline-flex ${className}`} onClick={clearCount}>
-            <BellIcon size={20} className="text-slate-600 hover:text-indigo-600 transition cursor-pointer" />
+            <BellIcon size={20} className="text-slate-600 hover:text-orange-500 transition cursor-pointer" />
             {count > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[8px] font-bold min-w-[16px] h-4 rounded-full flex items-center justify-center animate-bounce">
                     {count > 99 ? '99+' : count}

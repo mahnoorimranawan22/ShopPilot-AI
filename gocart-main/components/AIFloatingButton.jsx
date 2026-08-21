@@ -35,7 +35,7 @@ export default function AIFloatingButton() {
                 whileHover={{ scale: 1.08, y: -2 }}
                 whileTap={{ scale: 0.92 }}
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 via-violet-500 to-indigo-600 text-white shadow-xl shadow-indigo-500/30 flex items-center justify-center hover:shadow-2xl hover:shadow-indigo-500/40 transition-shadow group"
+                className="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 via-rose-500 to-orange-500 text-white shadow-xl shadow-orange-500/30 flex items-center justify-center hover:shadow-2xl hover:shadow-orange-500/40 transition-shadow group"
             >
                 <SparklesIcon size={22} className="group-hover:rotate-12 transition-transform" />
 
@@ -45,7 +45,7 @@ export default function AIFloatingButton() {
                         initial={{ scale: 1, opacity: 0.6 }}
                         animate={{ scale: 2.5, opacity: 0 }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }}
-                        className="absolute inset-0 rounded-2xl border-2 border-indigo-400"
+                        className="absolute inset-0 rounded-2xl border-2 border-orange-400"
                     />
                 )}
 

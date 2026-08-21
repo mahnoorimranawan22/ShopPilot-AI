@@ -3,7 +3,7 @@ import {
     askAssistant, getSuggestions, getFollowUps,
     getRecommended, trackBehavior, generateProduct, reviewAnalysis, businessInsight, inventoryIntelligence,
     getRecommendations, getTrending, getSearchSuggestions,
-    priceCompare, getCategoryInsights,
+    priceCompare, getCategoryInsights, visualSearch,
 } from '../controllers/ai.controller.js'
 import { protect } from '../middleware/auth.js'
 
@@ -29,6 +29,9 @@ router.post('/generate-product', generateProduct)
 // Personalized recommendations (optional auth)
 router.get('/recommended', getRecommended)
 router.post('/track', trackBehavior)
+
+// Visual Search
+router.post('/visual-search', visualSearch)
 
 // Existing endpoints
 router.get('/recommendations/:productId', getRecommendations)

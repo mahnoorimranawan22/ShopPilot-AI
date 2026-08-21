@@ -9,6 +9,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import PageTransition from "@/components/ui/PageTransition";
 
 export default function Cart() {
 
@@ -63,18 +65,21 @@ export default function Cart() {
 
     if (cartArray.length === 0) {
         return (
+            <PageTransition>
             <div className="min-h-[80vh] mx-6 flex flex-col items-center justify-center text-slate-400 gap-4">
                 <ShoppingCartIcon size={64} strokeWidth={1} className="text-slate-300" />
                 <h1 className="text-2xl sm:text-4xl font-semibold">Your cart is empty</h1>
                 <p className="text-sm">Discover amazing products on ShopPilot AI</p>
-                <Link href="/shop" className="bg-indigo-600 text-white px-8 py-2.5 rounded-full hover:bg-indigo-700 transition text-sm">
+                <Link href="/shop" className="bg-orange-500 text-white px-8 py-2.5 rounded-full hover:bg-orange-600 transition text-sm">
                     Browse Products
                 </Link>
             </div>
+            </PageTransition>
         )
     }
 
     return (
+        <PageTransition>
         <div className="min-h-screen mx-6 text-slate-800">
             <div className="max-w-7xl mx-auto ">
                 <PageTitle heading="My Cart" text={`${cartArray.length} item${cartArray.length > 1 ? 's' : ''} in your cart`} linkText="Add more" />
@@ -98,7 +103,7 @@ export default function Cart() {
                                                 <Image src={item.images?.[0] || ''} className="h-14 w-auto" alt="" width={45} height={45} />
                                             </Link>
                                             <div>
-                                                <Link href={`/product/${item.id}`} className="max-sm:text-sm hover:text-indigo-600 transition">{item.name}</Link>
+                                                <Link href={`/product/${item.id}`} className="max-sm:text-sm hover:text-orange-500 transition">{item.name}</Link>
                                                 <p className="text-xs text-slate-500">{item.category}</p>
                                                 <p>{currency}{item.price}</p>
                                                 {item.stock !== undefined && item.stock < 10 && item.stock > 0 && (
@@ -124,5 +129,6 @@ export default function Cart() {
                 </div>
             </div>
         </div>
+        </PageTransition>
     )
 }

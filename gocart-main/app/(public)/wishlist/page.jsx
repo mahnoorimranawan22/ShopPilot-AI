@@ -6,6 +6,7 @@ import { HeartIcon, Trash2Icon } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { productDummyData } from "@/assets/assets"
 import Link from "next/link"
+import PageTransition from "@/components/ui/PageTransition"
 
 export default function Wishlist() {
 
@@ -31,6 +32,7 @@ export default function Wishlist() {
     }
 
     return (
+        <PageTransition>
         <div className="min-h-[70vh] mx-6">
             <div className="max-w-7xl mx-auto">
                 <div className="my-8">
@@ -62,12 +64,13 @@ export default function Wishlist() {
                         <HeartIcon size={64} strokeWidth={1} className="mb-4 text-slate-300" />
                         <h2 className="text-xl sm:text-2xl font-semibold text-slate-500 mb-2">Your wishlist is empty</h2>
                         <p className="text-sm text-slate-400 mb-6">Save products you love by tapping the heart icon</p>
-                        <Link href="/shop" className="bg-indigo-600 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-indigo-700 transition">
+                        <Link href="/shop" className="bg-orange-500 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-orange-600 transition">
                             Browse Products
                         </Link>
                     </div>
                 )}
             </div>
         </div>
+        </PageTransition>
     )
 }

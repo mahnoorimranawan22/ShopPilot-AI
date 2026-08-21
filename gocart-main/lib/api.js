@@ -154,6 +154,11 @@ export const aiAPI = {
     // AI Business Intelligence
     businessInsight: (query) =>
         request('/ai/business-insight', { method: 'POST', body: JSON.stringify({ query }) }),
+    // Visual Search
+    visualSearch: (imageData, limit = 6) =>
+        request('/ai/visual-search', { method: 'POST', body: JSON.stringify({ imageData, limit }) }),
+    visualSearchFallback: (fileName, limit = 6) =>
+        request('/ai/visual-search', { method: 'POST', body: JSON.stringify({ imageData: null, fileName, limit }) }),
     // AI Product Generator
     generateProduct: (name, features = []) =>
         request('/ai/generate-product', { method: 'POST', body: JSON.stringify({ name, features }) }),

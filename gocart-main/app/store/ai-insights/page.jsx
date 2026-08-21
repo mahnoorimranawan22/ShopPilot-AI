@@ -42,7 +42,7 @@ export default function AIInsights() {
         <div className="text-slate-500 mb-28">
             <div className="flex items-center gap-3">
                 <h1 className="text-2xl">AI <span className="text-slate-800 font-medium">Insights</span></h1>
-                <span className="text-xs font-medium text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full flex items-center gap-1">
+                <span className="text-xs font-medium text-orange-500 bg-orange-50 px-2.5 py-1 rounded-full flex items-center gap-1">
                     <SparklesIcon size={12} /> Powered by ShopPilot AI
                 </span>
             </div>
@@ -50,7 +50,7 @@ export default function AIInsights() {
             {/* Trending Products */}
             <div className="bg-white border border-slate-200 rounded-xl p-6 mt-6">
                 <div className="flex items-center gap-2 mb-4">
-                    <TrendingUpIcon size={18} className="text-indigo-500" />
+                    <TrendingUpIcon size={18} className="text-orange-500" />
                     <h3 className="text-sm font-semibold text-slate-700">Trending in Your Store</h3>
                 </div>
                 <div className="space-y-3">
@@ -63,7 +63,7 @@ export default function AIInsights() {
                             <div className="text-right">
                                 <p className="text-xs text-slate-400">Confidence</p>
                                 <div className="w-16 h-2 bg-slate-200 rounded-full mt-1">
-                                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${product.confidence}%` }} />
+                                    <div className="h-full bg-orange-500 rounded-full" style={{ width: `${product.confidence}%` }} />
                                 </div>
                             </div>
                         </div>
@@ -79,9 +79,9 @@ export default function AIInsights() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {insights.recommendations.map((rec, index) => (
-                        <div key={index} className="p-4 border border-slate-100 rounded-lg hover:border-indigo-200 transition">
+                        <div key={index} className="p-4 border border-slate-100 rounded-lg hover:border-orange-200 transition">
                             <div className="flex items-start gap-3">
-                                <span className="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded capitalize shrink-0">
+                                <span className="text-xs font-medium text-orange-500 bg-orange-50 px-2 py-0.5 rounded capitalize shrink-0">
                                     {rec.type}
                                 </span>
                                 <div>
@@ -97,7 +97,7 @@ export default function AIInsights() {
             {/* Price Optimization */}
             <div className="bg-white border border-slate-200 rounded-xl p-6 mt-6">
                 <div className="flex items-center gap-2 mb-4">
-                    <BarChart3Icon size={18} className="text-violet-500" />
+                    <BarChart3Icon size={18} className="text-rose-500" />
                     <h3 className="text-sm font-semibold text-slate-700">Price Optimization</h3>
                 </div>
                 <div className="space-y-3">
@@ -109,7 +109,7 @@ export default function AIInsights() {
                             </div>
                             <div className="text-right flex items-center gap-3">
                                 <span className="text-sm text-slate-400 line-through">${item.currentPrice}</span>
-                                <span className="text-sm font-bold text-indigo-600">${item.suggestedPrice}</span>
+                                <span className="text-sm font-bold text-orange-500">${item.suggestedPrice}</span>
                             </div>
                         </div>
                     ))}
@@ -117,9 +117,9 @@ export default function AIInsights() {
             </div>
 
             {/* Demand Forecast */}
-            <div className="bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100 rounded-xl p-6 mt-6">
+            <div className="bg-gradient-to-br from-orange-50 to-rose-50 border border-orange-100 rounded-xl p-6 mt-6">
                 <div className="flex items-center gap-2 mb-4">
-                    <SparklesIcon size={18} className="text-indigo-500" />
+                    <SparklesIcon size={18} className="text-orange-500" />
                     <h3 className="text-sm font-semibold text-slate-700">Demand Forecast</h3>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
@@ -127,7 +127,7 @@ export default function AIInsights() {
                         <div key={index} className="text-center p-4 bg-white/80 rounded-lg">
                             <p className="text-xs text-slate-500">{forecast.period}</p>
                             <p className="text-xl font-bold text-slate-800 mt-1">{forecast.expected}</p>
-                            <p className="text-xs text-indigo-600 mt-1">{forecast.confidence}% confidence</p>
+                            <p className="text-xs text-orange-500 mt-1">{forecast.confidence}% confidence</p>
                         </div>
                     ))}
                 </div>

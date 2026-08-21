@@ -28,7 +28,7 @@ export default function SocketProvider({ children }) {
             const unsub1 = onSocket('order:created', (data) => {
                 toast.success(
                     <div className="flex items-center gap-2">
-                        <BellIcon size={16} className="text-indigo-500" />
+                        <BellIcon size={16} className="text-orange-500" />
                         <div>
                             <p className="font-semibold text-sm">New Order {data.orderNumber}</p>
                             <p className="text-xs text-slate-500">${data.total} from {data.customer}</p>
@@ -46,7 +46,7 @@ export default function SocketProvider({ children }) {
                         <div>
                             <p className="font-semibold text-sm">Order Confirmed!</p>
                             <p className="text-xs text-slate-500">{data.orderNumber} · ${data.total}</p>
-                            <p className="text-xs text-indigo-600">Est. delivery: {data.estimatedDelivery}</p>
+                            <p className="text-xs text-orange-500">Est. delivery: {data.estimatedDelivery}</p>
                         </div>
                     </div>,
                     { duration: 5000, position: 'top-right' }
@@ -57,7 +57,7 @@ export default function SocketProvider({ children }) {
             const unsub3 = onSocket('order:statusChanged', (data) => {
                 const statusColors = {
                     PROCESSING: 'text-blue-500',
-                    SHIPPED: 'text-indigo-500',
+                    SHIPPED: 'text-orange-500',
                     DELIVERED: 'text-green-500',
                     CANCELLED: 'text-red-500',
                 }

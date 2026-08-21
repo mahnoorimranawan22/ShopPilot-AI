@@ -9,6 +9,17 @@ import Image from "next/image";
 import Counter from "./Counter";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { PriceIntelligenceBadge } from "./PriceIntelligence";
+import { GitCompareArrowsIcon } from "lucide-react";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+        opacity: 1, y: 0,
+        transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+    })
+}
 
 const ProductDetails = ({ product }) => {
 
@@ -58,7 +69,7 @@ const ProductDetails = ({ product }) => {
 
     return (
         <div className="flex max-lg:flex-col gap-12">
-            <div className="flex max-sm:flex-col-reverse gap-3">
+            <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp} className="flex max-sm:flex-col-reverse gap-3">
                 <div className="flex sm:flex-col gap-3">
                     {(product.images || []).map((image, index) => (
                         <div key={index} onClick={() => setMainImage(product.images[index])} className="bg-slate-100 flex items-center justify-center size-26 rounded-lg group cursor-pointer">
@@ -69,8 +80,8 @@ const ProductDetails = ({ product }) => {
                 <div className="flex justify-center items-center h-100 sm:size-113 bg-slate-100 rounded-lg">
                     <Image src={mainImage} alt="" width={250} height={250} />
                 </div>
-            </div>
-            <div className="flex-1">
+            </motion.div>
+            <motion.div custom={1} initial="hidden" animate="visible" variants={fadeUp} className="flex-1">
                 <h1 className="text-3xl font-semibold text-slate-800">{product.name}</h1>
                 <div className='flex items-center mt-2'>
                     {Array(5).fill('').map((_, index) => (
@@ -112,19 +123,31 @@ const ProductDetails = ({ product }) => {
                     <button
                         onClick={inCart ? () => router.push('/cart') : addToCartHandler}
                         disabled={isOutOfStock || adding}
-                        className="bg-indigo-600 text-white px-10 py-3 text-sm font-medium rounded hover:bg-indigo-700 active:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                        className="bg-orange-500 text-white px-10 py-3 text-sm font-medium rounded hover:bg-orange-600 active:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                     >
                         <ShoppingCartIcon size={16} />
                         {isOutOfStock ? 'Out of Stock' : adding ? 'Adding...' : inCart ? 'View Cart' : 'Add to Cart'}
                     </button>
                 </div>
                 <hr className="border-gray-300 my-5" />
+                <PriceIntelligenceBadge product={product} />
+
+                {/* Compare Button */}
+                <div className="mt-4">
+                    <button
+                        onClick={() => window.dispatchEvent(new CustomEvent('open-comparison', { detail: { productId: productId } }))}
+                        className="flex items-center gap-2 text-sm text-rose-600 hover:text-violet-700 font-medium transition"
+                    >
+                        <GitCompareArrowsIcon size={16} />
+                        Compare with another product
+                    </button>
+                </div>
                 <div className="flex flex-col gap-4 text-slate-500">
                     <p className="flex gap-3"> <EarthIcon className="text-slate-400" /> Free shipping worldwide </p>
                     <p className="flex gap-3"> <CreditCardIcon className="text-slate-400" /> 100% Secured Payment </p>
                     <p className="flex gap-3"> <UserIcon className="text-slate-400" /> Trusted by top brands </p>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

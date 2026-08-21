@@ -29,12 +29,12 @@ const StoreSidebar = ({ storeInfo }) => {
                 {storeInfo?.logo ? (
                     <Image className="w-12 h-12 rounded-full shadow-md object-cover" src={storeInfo.logo} alt="" width={48} height={48} />
                 ) : (
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-lg font-bold">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-lg font-bold">
                         {userData?.name?.[0] || 'S'}
                     </div>
                 )}
                 <p className="text-sm font-medium text-slate-700 text-center truncate max-w-48">{storeInfo?.name || userData?.name || 'Store'}</p>
-                <span className="text-[10px] font-medium text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-full">Merchant</span>
+                <span className="text-[10px] font-medium text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full">Merchant</span>
             </div>
 
             <div className="max-sm:mt-6 flex-1 overflow-y-auto no-scrollbar">
@@ -42,7 +42,7 @@ const StoreSidebar = ({ storeInfo }) => {
                     <Link key={index} href={link.href} className={`relative flex items-center gap-3 text-slate-500 hover:bg-slate-50 p-2.5 transition ${pathname === link.href && 'bg-slate-100 sm:text-slate-600'}`}>
                         <link.icon size={18} className="sm:ml-5" />
                         <p className="max-sm:hidden text-sm">{link.name}</p>
-                        {pathname === link.href && <span className="absolute bg-indigo-500 right-0 top-1.5 bottom-1.5 w-1 sm:w-1.5 rounded-l" />}
+                        {pathname === link.href && <span className="absolute bg-orange-500 right-0 top-1.5 bottom-1.5 w-1 sm:w-1.5 rounded-l" />}
                     </Link>
                 ))}
             </div>

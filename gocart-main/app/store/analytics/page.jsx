@@ -36,8 +36,8 @@ export default function StoreAnalytics() {
 
     const stats = [
         { label: 'Total Revenue', value: '$45,300', change: '+12.5%', icon: DollarSignIcon, color: 'text-green-600 bg-green-50' },
-        { label: 'Total Orders', value: '462', change: '+8.3%', icon: ShoppingBagIcon, color: 'text-indigo-600 bg-indigo-50' },
-        { label: 'Avg. Order Value', value: '$98.05', change: '+3.2%', icon: TrendingUpIcon, color: 'text-violet-600 bg-violet-50' },
+        { label: 'Total Orders', value: '462', change: '+8.3%', icon: ShoppingBagIcon, color: 'text-orange-500 bg-orange-50' },
+        { label: 'Avg. Order Value', value: '$98.05', change: '+3.2%', icon: TrendingUpIcon, color: 'text-rose-600 bg-rose-50' },
         { label: 'Avg. Rating', value: '4.6', change: '+0.1', icon: StarIcon, color: 'text-amber-600 bg-amber-50' },
     ]
 
@@ -103,7 +103,7 @@ export default function StoreAnalytics() {
                             <div key={index} className="flex items-center gap-4">
                                 <p className="text-sm text-slate-600 w-24 shrink-0">{cat.category}</p>
                                 <div className="flex-1 h-6 bg-slate-100 rounded-full overflow-hidden">
-                                    <div className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full transition-all" style={{ width: `${percentage}%` }} />
+                                    <div className="h-full bg-gradient-to-r from-orange-500 to-rose-500 rounded-full transition-all" style={{ width: `${percentage}%` }} />
                                 </div>
                                 <p className="text-sm font-medium text-slate-700 w-16 text-right">${cat.revenue.toLocaleString()}</p>
                             </div>

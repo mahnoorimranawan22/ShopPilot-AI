@@ -128,7 +128,7 @@ function KeywordTag({ keyword, index, maxCount }) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.03 }}
-            className="inline-block bg-indigo-50 text-indigo-600 rounded-full px-3 py-1 font-medium hover:bg-indigo-100 transition-colors cursor-default"
+            className="inline-block bg-orange-50 text-orange-500 rounded-full px-3 py-1 font-medium hover:bg-orange-100 transition-colors cursor-default"
             style={{ fontSize: `${size * 12}px` }}
             title={`${keyword.count} mentions`}
         >
@@ -195,7 +195,7 @@ export default function ReviewAnalysis({ productId, reviews: propReviews }) {
         return (
             <div className="bg-white border border-slate-100 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center">
                         <Loader2Icon size={20} className="text-white animate-spin" />
                     </div>
                     <div>
@@ -226,7 +226,7 @@ export default function ReviewAnalysis({ productId, reviews: propReviews }) {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
                         <SparklesIcon size={20} className="text-white" />
                     </div>
                     <div>
@@ -236,7 +236,7 @@ export default function ReviewAnalysis({ productId, reviews: propReviews }) {
                 </div>
                 <button
                     onClick={analyze}
-                    className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-indigo-600 transition-colors bg-slate-50 hover:bg-indigo-50 px-3 py-1.5 rounded-lg"
+                    className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-orange-500 transition-colors bg-slate-50 hover:bg-orange-50 px-3 py-1.5 rounded-lg"
                 >
                     <RefreshCwIcon size={12} />
                     Refresh
@@ -248,7 +248,7 @@ export default function ReviewAnalysis({ productId, reviews: propReviews }) {
                 {/* Sentiment */}
                 <div className="bg-white border border-slate-100 rounded-2xl p-5">
                     <div className="flex items-center gap-2 mb-4">
-                        <BarChart3Icon size={16} className="text-indigo-500" />
+                        <BarChart3Icon size={16} className="text-orange-500" />
                         <h4 className="text-sm font-bold text-slate-700">Customer Sentiment</h4>
                     </div>
                     <SentimentPie
@@ -294,7 +294,7 @@ export default function ReviewAnalysis({ productId, reviews: propReviews }) {
             {data.topics.length > 0 && (
                 <div className="bg-white border border-slate-100 rounded-2xl p-5">
                     <div className="flex items-center gap-2 mb-4">
-                        <MessageCircleIcon size={16} className="text-indigo-500" />
+                        <MessageCircleIcon size={16} className="text-orange-500" />
                         <h4 className="text-sm font-bold text-slate-700">Common Topics</h4>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -322,9 +322,9 @@ export default function ReviewAnalysis({ productId, reviews: propReviews }) {
 
             {/* Insights */}
             {data.insights.length > 0 && (
-                <div className="bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100 rounded-2xl p-5">
+                <div className="bg-gradient-to-br from-orange-50 to-rose-50 border border-orange-100 rounded-2xl p-5">
                     <div className="flex items-center gap-2 mb-3">
-                        <SparklesIcon size={16} className="text-indigo-500" />
+                        <SparklesIcon size={16} className="text-orange-500" />
                         <h4 className="text-sm font-bold text-slate-700">AI Insights</h4>
                     </div>
                     <div className="space-y-2">

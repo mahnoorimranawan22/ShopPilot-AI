@@ -1,6 +1,8 @@
 'use client'
 import ProductDescription from "@/components/ProductDescription";
 import ProductDetails from "@/components/ProductDetails";
+import { PriceTrendChart } from "@/components/PriceIntelligence";
+import ProductBundle from "@/components/ProductBundle";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -66,15 +68,23 @@ export default function Product() {
             <div className="max-w-7xl mx-auto">
                 {/* Breadcrumbs */}
                 <div className="text-gray-600 text-sm mt-8 mb-5">
-                    <a href="/" className="hover:text-indigo-600">Home</a>
+                    <a href="/" className="hover:text-orange-500">Home</a>
                     {' / '}
-                    <a href="/shop" className="hover:text-indigo-600">Products</a>
+                    <a href="/shop" className="hover:text-orange-500">Products</a>
                     {' / '}
                     <span className="text-slate-700">{product?.category}</span>
                 </div>
 
                 {/* Product Details */}
                 <ProductDetails product={product} />
+
+                {/* Price Trend Chart */}
+                <div className="my-8">
+                    <PriceTrendChart product={product} />
+                </div>
+
+                {/* Smart Bundles */}
+                <ProductBundle currentProduct={product} />
 
                 {/* Description & Reviews */}
                 <ProductDescription product={product} />

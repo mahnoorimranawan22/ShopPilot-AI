@@ -8,6 +8,8 @@ import { PlusIcon, XIcon, ShieldCheckIcon, TruckIcon, CreditCardIcon } from "luc
 import AddressModal from "@/components/AddressModal"
 import { clearCart, apiClearCart } from "@/lib/features/cart/cartSlice"
 import { ordersAPI } from "@/lib/api"
+import { motion } from "framer-motion"
+import PageTransition from "@/components/ui/PageTransition"
 
 export default function Checkout() {
 
@@ -94,13 +96,15 @@ export default function Checkout() {
 
     if (cartArray.length === 0) {
         return (
+            <PageTransition>
             <div className="min-h-[80vh] mx-6 flex flex-col items-center justify-center text-slate-400 gap-4">
                 <h1 className="text-2xl sm:text-4xl font-semibold">Your cart is empty</h1>
                 <p className="text-sm">Add some products before checking out</p>
-                <button onClick={() => router.push('/shop')} className="bg-indigo-600 text-white px-8 py-2.5 rounded-full hover:bg-indigo-700 transition text-sm">
+                <button onClick={() => router.push('/shop')} className="bg-orange-500 text-white px-8 py-2.5 rounded-full hover:bg-orange-600 transition text-sm">
                     Browse Products
                 </button>
             </div>
+            </PageTransition>
         )
     }
 
@@ -108,6 +112,7 @@ export default function Checkout() {
     const finalTotal = totalPrice - discount
 
     return (
+        <PageTransition>
         <div className="min-h-screen mx-6 text-slate-800">
             <div className="max-w-6xl mx-auto py-8">
                 <div className="mb-8">
@@ -119,11 +124,11 @@ export default function Checkout() {
                 <div className="flex items-center gap-3 mb-10 max-w-md">
                     {[{ n: 1, label: 'Address' }, { n: 2, label: 'Payment' }, { n: 3, label: 'Confirm' }].map((s, i) => (
                         <div key={s.n} className="flex items-center gap-3 flex-1">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 transition ${step >= s.n ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 transition ${step >= s.n ? 'bg-orange-500 text-white' : 'bg-slate-100 text-slate-400'}`}>
                                 {step > s.n ? '✓' : s.n}
                             </div>
                             <span className={`text-xs sm:text-sm hidden sm:block ${step >= s.n ? 'text-slate-700 font-medium' : 'text-slate-400'}`}>{s.label}</span>
-                            {i < 2 && <div className={`flex-1 h-0.5 rounded ${step > s.n ? 'bg-indigo-600' : 'bg-slate-200'}`} />}
+                            {i < 2 && <div className={`flex-1 h-0.5 rounded ${step > s.n ? 'bg-orange-500' : 'bg-slate-200'}`} />}
                         </div>
                     ))}
                 </div>
@@ -137,8 +142,8 @@ export default function Checkout() {
                                 {addressList.length > 0 && (
                                     <div className="space-y-3 mb-4">
                                         {addressList.map((addr, index) => (
-                                            <label key={index} className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${selectedAddress?.id === addr.id ? 'border-indigo-500 bg-indigo-50/50' : 'border-slate-200 hover:border-slate-300'}`}>
-                                                <input type="radio" name="address" checked={selectedAddress?.id === addr.id} onChange={() => setSelectedAddress(addr)} className="mt-1 accent-indigo-600" />
+                                            <label key={index} className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${selectedAddress?.id === addr.id ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200 hover:border-slate-300'}`}>
+                                                <input type="radio" name="address" checked={selectedAddress?.id === addr.id} onChange={() => setSelectedAddress(addr)} className="mt-1 accent-orange-500" />
                                                 <div className="text-sm">
                                                     <p className="font-medium text-slate-700">{addr.name}</p>
                                                     <p className="text-slate-500">{addr.street}, {addr.city}, {addr.state} {addr.zip}</p>
@@ -148,11 +153,11 @@ export default function Checkout() {
                                         ))}
                                     </div>
                                 )}
-                                <button onClick={() => setShowAddressModal(true)} className="flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+                                <button onClick={() => setShowAddressModal(true)} className="flex items-center gap-2 text-sm text-orange-500 hover:text-orange-600 font-medium">
                                     <PlusIcon size={16} /> Add New Address
                                 </button>
                                 <div className="flex justify-end mt-6">
-                                    <button onClick={() => setStep(2)} disabled={!selectedAddress} className="bg-indigo-600 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition">
+                                    <button onClick={() => setStep(2)} disabled={!selectedAddress} className="bg-orange-500 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-orange-600 disabled:opacity-40 disabled:cursor-not-allowed transition">
                                         Continue to Payment
                                     </button>
                                 </div>
@@ -169,8 +174,8 @@ export default function Checkout() {
                                         { id: 'COD', label: 'Cash on Delivery', icon: TruckIcon, desc: 'Pay when your order arrives' },
                                         { id: 'STRIPE', label: 'Credit / Debit Card', icon: CreditCardIcon, desc: 'Secure online payment via Stripe' },
                                     ].map(method => (
-                                        <label key={method.id} className={`flex items-center gap-4 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === method.id ? 'border-indigo-500 bg-indigo-50/50' : 'border-slate-200 hover:border-slate-300'}`}>
-                                            <input type="radio" name="payment" checked={paymentMethod === method.id} onChange={() => setPaymentMethod(method.id)} className="accent-indigo-600" />
+                                        <label key={method.id} className={`flex items-center gap-4 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === method.id ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200 hover:border-slate-300'}`}>
+                                            <input type="radio" name="payment" checked={paymentMethod === method.id} onChange={() => setPaymentMethod(method.id)} className="accent-orange-500" />
                                             <method.icon size={20} className="text-slate-500" />
                                             <div>
                                                 <p className="font-medium text-sm text-slate-700">{method.label}</p>
@@ -181,7 +186,7 @@ export default function Checkout() {
                                 </div>
                                 <div className="flex justify-between mt-6">
                                     <button onClick={() => setStep(1)} className="text-sm text-slate-500 hover:text-slate-700 font-medium">← Back</button>
-                                    <button onClick={() => setStep(3)} className="bg-indigo-600 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-indigo-700 transition">Review Order</button>
+                                    <button onClick={() => setStep(3)} className="bg-orange-500 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-orange-600 transition">Review Order</button>
                                 </div>
                             </div>
                         )}
@@ -216,7 +221,7 @@ export default function Checkout() {
                                 </div>
                                 <div className="flex justify-between mt-6">
                                     <button onClick={() => setStep(2)} className="text-sm text-slate-500 hover:text-slate-700 font-medium">← Back</button>
-                                    <button onClick={handlePlaceOrder} disabled={placing} className="bg-indigo-600 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-indigo-700 active:scale-95 transition disabled:opacity-60 flex items-center gap-2">
+                                    <button onClick={handlePlaceOrder} disabled={placing} className="bg-orange-500 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-orange-600 active:scale-95 transition disabled:opacity-60 flex items-center gap-2">
                                         {placing ? 'Placing Order...' : `Place Order · ${currency}${finalTotal.toFixed(2)}`}
                                     </button>
                                 </div>
@@ -247,7 +252,7 @@ export default function Checkout() {
                             <div className="my-4 pt-4 border-t border-slate-200">
                                 {!coupon ? (
                                     <form onSubmit={(e) => { e.preventDefault(); if (couponCodeInput.toUpperCase() === 'NEW20') { setCoupon({ code: 'NEW20', discount: 20, description: '20% Off' }); toast.success('Coupon applied!') } else { toast.error('Invalid coupon code') } }} className="flex gap-2">
-                                        <input value={couponCodeInput} onChange={(e) => setCouponCodeInput(e.target.value)} type="text" placeholder="Coupon code" className="flex-1 text-sm p-2 border border-slate-200 rounded outline-none focus:border-indigo-400" />
+                                        <input value={couponCodeInput} onChange={(e) => setCouponCodeInput(e.target.value)} type="text" placeholder="Coupon code" className="flex-1 text-sm p-2 border border-slate-200 rounded outline-none focus:border-orange-400" />
                                         <button type="submit" className="text-sm px-4 py-2 bg-slate-700 text-white rounded hover:bg-slate-800 transition">Apply</button>
                                     </form>
                                 ) : (
@@ -270,5 +275,6 @@ export default function Checkout() {
                 </div>
             </div>
         </div>
+        </PageTransition>
     )
 }

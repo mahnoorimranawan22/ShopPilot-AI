@@ -43,14 +43,14 @@ export default function AdminSettings() {
 
             {activeTab === 'general' && (
                 <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-5">
-                    <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Platform Name</label><input value={platformName} onChange={e => setPlatformName(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" /></div>
-                    <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Support Email</label><input value={supportEmail} onChange={e => setSupportEmail(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" /></div>
+                    <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Platform Name</label><input value={platformName} onChange={e => setPlatformName(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400" /></div>
+                    <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Support Email</label><input value={supportEmail} onChange={e => setSupportEmail(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400" /></div>
                     <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Default Currency</label>
-                        <select value={currency} onChange={e => setCurrency(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400">
+                        <select value={currency} onChange={e => setCurrency(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400">
                             <option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option>
                         </select>
                     </div>
-                    <button onClick={handleSave} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition"><SaveIcon size={16} /> Save</button>
+                    <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition"><SaveIcon size={16} /> Save</button>
                 </div>
             )}
 
@@ -59,7 +59,7 @@ export default function AdminSettings() {
                     <label className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"><div><p className="text-sm font-medium text-slate-700">Allow Public Registration</p><p className="text-xs text-slate-400">Let anyone create a buyer account</p></div><Toggle checked={allowRegistration} onChange={() => setAllowRegistration(!allowRegistration)} /></label>
                     <label className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"><div><p className="text-sm font-medium text-slate-700">Require Store Approval</p><p className="text-xs text-slate-400">Admin must approve new seller stores</p></div><Toggle checked={requireStoreApproval} onChange={() => setRequireStoreApproval(!requireStoreApproval)} /></label>
                     <label className="flex items-center justify-between p-4 bg-red-50 rounded-lg border border-red-100"><div><p className="text-sm font-medium text-red-700">Maintenance Mode</p><p className="text-xs text-red-400">Show maintenance page to all non-admin users</p></div><Toggle checked={maintenanceMode} onChange={() => setMaintenanceMode(!maintenanceMode)} /></label>
-                    <button onClick={handleSave} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition"><SaveIcon size={16} /> Save</button>
+                    <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition"><SaveIcon size={16} /> Save</button>
                 </div>
             )}
 
@@ -75,17 +75,17 @@ export default function AdminSettings() {
                             </div>
                         </label>
                     ))}
-                    <button onClick={handleSave} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition"><SaveIcon size={16} /> Save</button>
+                    <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition"><SaveIcon size={16} /> Save</button>
                 </div>
             )}
 
             {activeTab === 'appearance' && (
                 <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-5">
                     <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Primary Color</label>
-                        <div className="flex gap-2">{['#6366f1', '#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'].map(c => <div key={c} className="w-10 h-10 rounded-lg cursor-pointer ring-2 ring-offset-2 ring-transparent hover:ring-indigo-400 transition" style={{ background: c }} />)}</div>
+                        <div className="flex gap-2">{['#6366f1', '#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'].map(c => <div key={c} className="w-10 h-10 rounded-lg cursor-pointer ring-2 ring-offset-2 ring-transparent hover:ring-orange-400 transition" style={{ background: c }} />)}</div>
                     </div>
-                    <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Footer Text</label><input defaultValue="ShopPilot AI — Smart Shopping, Powered by Intelligence" className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" /></div>
-                    <button onClick={handleSave} className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition"><SaveIcon size={16} /> Save</button>
+                    <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Footer Text</label><input defaultValue="ShopPilot AI — Smart Shopping, Powered by Intelligence" className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400" /></div>
+                    <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition"><SaveIcon size={16} /> Save</button>
                 </div>
             )}
         </div>

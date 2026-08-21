@@ -35,7 +35,7 @@ function VelocityBar({ daily, max }) {
                 initial={{ width: 0 }}
                 animate={{ width: `${width}%` }}
                 transition={{ duration: 0.6 }}
-                className={`h-full rounded-full ${daily > 2 ? 'bg-indigo-500' : daily > 0.5 ? 'bg-blue-400' : 'bg-slate-300'}`}
+                className={`h-full rounded-full ${daily > 2 ? 'bg-orange-500' : daily > 0.5 ? 'bg-blue-400' : 'bg-slate-300'}`}
             />
         </div>
     )
@@ -101,7 +101,7 @@ function AlertCard({ alert, index }) {
                                 <span className="text-[10px] text-slate-500">~{p.daysLeft}d</span>
                             )}
                             {p.restock > 0 && (
-                                <span className="text-[10px] font-semibold bg-indigo-100 text-indigo-600 px-2 py-0.5 rounded-full">
+                                <span className="text-[10px] font-semibold bg-orange-100 text-orange-500 px-2 py-0.5 rounded-full">
                                     Order {p.restock}+
                                 </span>
                             )}
@@ -139,7 +139,7 @@ export default function InventoryIntelligence() {
         return (
             <div className="bg-white border border-slate-100 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center">
                         <Loader2Icon size={20} className="text-white animate-spin" />
                     </div>
                     <div>
@@ -165,7 +165,7 @@ export default function InventoryIntelligence() {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
                         <PackageIcon size={20} className="text-white" />
                     </div>
                     <div>
@@ -173,7 +173,7 @@ export default function InventoryIntelligence() {
                         <p className="text-xs text-slate-500">AI-powered stock analysis with velocity tracking</p>
                     </div>
                 </div>
-                <button onClick={loadData} className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50 px-3 py-1.5 rounded-lg transition-colors">
+                <button onClick={loadData} className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-orange-500 bg-slate-50 hover:bg-orange-50 px-3 py-1.5 rounded-lg transition-colors">
                     <RefreshCwIcon size={12} /> Refresh
                 </button>
             </div>
@@ -181,7 +181,7 @@ export default function InventoryIntelligence() {
             {/* Summary Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
-                    { label: 'Total Stock', value: data.summary.totalStock, icon: PackageIcon, color: 'text-indigo-500' },
+                    { label: 'Total Stock', value: data.summary.totalStock, icon: PackageIcon, color: 'text-orange-500' },
                     { label: 'Stock Value', value: `$${data.summary.totalValue.toLocaleString()}`, icon: BarChart3Icon, color: 'text-emerald-500' },
                     { label: 'Low Stock', value: data.summary.lowStockCount, icon: AlertTriangleIcon, color: data.summary.lowStockCount > 0 ? 'text-amber-500' : 'text-slate-400' },
                     { label: 'Out of Stock', value: data.summary.outOfStockCount, icon: ArrowDownIcon, color: data.summary.outOfStockCount > 0 ? 'text-red-500' : 'text-slate-400' },
@@ -213,7 +213,7 @@ export default function InventoryIntelligence() {
             <div className="bg-white border border-slate-100 rounded-2xl overflow-hidden">
                 <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <TrendingUpIcon size={16} className="text-indigo-500" />
+                        <TrendingUpIcon size={16} className="text-orange-500" />
                         <h4 className="text-sm font-bold text-slate-700">Product Inventory Analysis</h4>
                     </div>
                     <span className="text-[10px] text-slate-400">{data.products.length} products</span>
@@ -274,7 +274,7 @@ export default function InventoryIntelligence() {
                                     </td>
                                     <td className="px-4 py-3">
                                         {product.recommendedRestock > 0 ? (
-                                            <span className="text-indigo-600 font-semibold">{product.recommendedRestock} units</span>
+                                            <span className="text-orange-500 font-semibold">{product.recommendedRestock} units</span>
                                         ) : (
                                             <span className="text-slate-400">—</span>
                                         )}

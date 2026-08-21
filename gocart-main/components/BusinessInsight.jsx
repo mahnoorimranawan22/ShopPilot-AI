@@ -45,7 +45,7 @@ function MetricCard({ label, value, change, icon: Icon }) {
     const isPositive = change && parseFloat(change) >= 0
     return (
         <div className="bg-white border border-slate-100 rounded-xl p-3 text-center">
-            <Icon size={16} className="mx-auto text-indigo-500 mb-1" />
+            <Icon size={16} className="mx-auto text-orange-500 mb-1" />
             <p className="text-lg font-bold text-slate-800">{value}</p>
             <p className="text-[10px] text-slate-500">{label}</p>
             {change !== undefined && (
@@ -61,14 +61,14 @@ function MetricCard({ label, value, change, icon: Icon }) {
 function ResponseBubble({ data }) {
     return (
         <div className="flex items-start gap-2.5 mb-4">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/25">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/25">
                 <BotIcon size={16} className="text-white" />
             </div>
             <div className="flex-1 min-w-0">
                 {/* Title */}
                 <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm mb-2">
                     <div className="flex items-center gap-2 mb-2">
-                        <SparklesIcon size={14} className="text-indigo-500" />
+                        <SparklesIcon size={14} className="text-orange-500" />
                         <span className="text-xs font-bold text-slate-800">{data.title}</span>
                         {data.severity && (
                             <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${
@@ -85,7 +85,7 @@ function ResponseBubble({ data }) {
                     <div className="space-y-1.5">
                         {data.insights?.map((text, i) => (
                             <div key={i} className="flex items-start gap-2 text-sm text-slate-700">
-                                <span className="text-indigo-400 mt-0.5">•</span>
+                                <span className="text-orange-400 mt-0.5">•</span>
                                 <span className="leading-relaxed">{text}</span>
                             </div>
                         ))}
@@ -94,14 +94,14 @@ function ResponseBubble({ data }) {
 
                 {/* Recommendations */}
                 {data.recommendations?.length > 0 && (
-                    <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-100 rounded-xl px-3 py-2.5 mb-2">
+                    <div className="bg-gradient-to-r from-orange-50 to-rose-50 border border-orange-100 rounded-xl px-3 py-2.5 mb-2">
                         <div className="flex items-center gap-1.5 mb-1.5">
                             <LightbulbIcon size={12} className="text-amber-500" />
-                            <span className="text-[10px] font-bold text-indigo-700">Recommendations</span>
+                            <span className="text-[10px] font-bold text-orange-600">Recommendations</span>
                         </div>
                         {data.recommendations.map((rec, i) => (
                             <div key={i} className="flex items-start gap-1.5 text-xs text-slate-600 mb-1">
-                                <span className="text-indigo-400">→</span>
+                                <span className="text-orange-400">→</span>
                                 <span>{rec}</span>
                             </div>
                         ))}
@@ -178,14 +178,14 @@ function ResponseBubble({ data }) {
 function TypingIndicator() {
     return (
         <div className="flex items-start gap-2.5 mb-4">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/25">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/25">
                 <BotIcon size={16} className="text-white" />
             </div>
             <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
                 <div className="flex items-center gap-1.5">
-                    <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0 }} className="w-2 h-2 rounded-full bg-indigo-400" />
+                    <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0 }} className="w-2 h-2 rounded-full bg-orange-400" />
                     <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.2 }} className="w-2 h-2 rounded-full bg-violet-400" />
-                    <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.4 }} className="w-2 h-2 rounded-full bg-indigo-400" />
+                    <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.4 }} className="w-2 h-2 rounded-full bg-orange-400" />
                 </div>
             </div>
         </div>
@@ -256,15 +256,15 @@ export default function BusinessInsight() {
     const displayMessages = messages.length === 0 ? [welcomeMessage] : messages
 
     return (
-        <div className="bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 rounded-2xl overflow-hidden">
+        <div className="bg-gradient-to-br from-orange-50 via-white to-rose-50 border border-orange-100 rounded-2xl overflow-hidden">
             {/* Header */}
-            <div className="px-5 py-4 bg-gradient-to-r from-indigo-600 via-violet-500 to-indigo-600 flex items-center gap-3">
+            <div className="px-5 py-4 bg-gradient-to-r from-orange-500 via-rose-500 to-orange-500 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
                     <SparklesIcon size={18} className="text-white" />
                 </div>
                 <div>
                     <h3 className="text-white font-bold text-sm">AI Business Intelligence</h3>
-                    <p className="text-indigo-100 text-[11px]">Ask about sales, inventory, customers, and more</p>
+                    <p className="text-orange-100 text-[11px]">Ask about sales, inventory, customers, and more</p>
                 </div>
             </div>
 
@@ -274,7 +274,7 @@ export default function BusinessInsight() {
                     <div key={i}>
                         {msg.role === 'user' ? (
                             <div className="flex items-start gap-2.5 justify-end mb-3">
-                                <div className="bg-indigo-600 text-white text-sm px-4 py-2.5 rounded-2xl rounded-tr-md max-w-[80%] shadow-lg shadow-indigo-500/10">
+                                <div className="bg-orange-500 text-white text-sm px-4 py-2.5 rounded-2xl rounded-tr-md max-w-[80%] shadow-lg shadow-orange-500/10">
                                     {msg.content}
                                 </div>
                             </div>
@@ -298,7 +298,7 @@ export default function BusinessInsight() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => handleSend(q.text)}
-                                className="flex items-center gap-1.5 bg-white border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50 text-[11px] font-medium text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-lg transition-all"
+                                className="flex items-center gap-1.5 bg-white border border-slate-100 hover:border-orange-200 hover:bg-orange-50 text-[11px] font-medium text-slate-600 hover:text-orange-500 px-3 py-1.5 rounded-lg transition-all"
                             >
                                 {q.icon}
                                 {q.text}
@@ -310,7 +310,7 @@ export default function BusinessInsight() {
 
             {/* Input */}
             <div className="px-4 pb-4 pt-2">
-                <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
+                <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2 focus-within:border-orange-300 focus-within:ring-2 focus-within:ring-orange-100 transition-all">
                     <input
                         ref={inputRef}
                         type="text"
@@ -326,7 +326,7 @@ export default function BusinessInsight() {
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleSend()}
                         disabled={!inputValue.trim() || isLoading}
-                        className="w-8 h-8 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md disabled:opacity-40 disabled:shadow-none transition-all"
+                        className="w-8 h-8 rounded-lg bg-gradient-to-r from-orange-500 to-rose-500 flex items-center justify-center text-white shadow-md disabled:opacity-40 disabled:shadow-none transition-all"
                     >
                         {isLoading ? <Loader2Icon size={14} className="animate-spin" /> : <SendIcon size={14} />}
                     </motion.button>

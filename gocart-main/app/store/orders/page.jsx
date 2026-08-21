@@ -59,7 +59,7 @@ export default function StoreOrders() {
                                     className="hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
                                     onClick={() => openModal(order)}
                                 >
-                                    <td className="pl-6 text-indigo-600" >
+                                    <td className="pl-6 text-orange-500" >
                                         {index + 1}
                                     </td>
                                     <td className="px-4 py-3">{order.user?.name}</td>
@@ -67,7 +67,7 @@ export default function StoreOrders() {
                                     <td className="px-4 py-3">{order.paymentMethod}</td>
                                     <td className="px-4 py-3">
                                         {order.isCouponUsed ? (
-                                            <span className="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">
+                                            <span className="bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded-full">
                                                 {order.coupon?.code}
                                             </span>
                                         ) : (
@@ -107,10 +107,10 @@ export default function StoreOrders() {
                         {/* Customer Details */}
                         <div className="mb-4">
                             <h3 className="font-semibold mb-2">Customer Details</h3>
-                            <p><span className="text-indigo-700">Name:</span> {selectedOrder.user?.name}</p>
-                            <p><span className="text-indigo-700">Email:</span> {selectedOrder.user?.email}</p>
-                            <p><span className="text-indigo-700">Phone:</span> {selectedOrder.address?.phone}</p>
-                            <p><span className="text-indigo-700">Address:</span> {`${selectedOrder.address?.street}, ${selectedOrder.address?.city}, ${selectedOrder.address?.state}, ${selectedOrder.address?.zip}, ${selectedOrder.address?.country}`}</p>
+                            <p><span className="text-orange-600">Name:</span> {selectedOrder.user?.name}</p>
+                            <p><span className="text-orange-600">Email:</span> {selectedOrder.user?.email}</p>
+                            <p><span className="text-orange-600">Phone:</span> {selectedOrder.address?.phone}</p>
+                            <p><span className="text-orange-600">Address:</span> {`${selectedOrder.address?.street}, ${selectedOrder.address?.city}, ${selectedOrder.address?.state}, ${selectedOrder.address?.zip}, ${selectedOrder.address?.country}`}</p>
                         </div>
 
                         {/* Products */}
@@ -136,13 +136,13 @@ export default function StoreOrders() {
 
                         {/* Payment & Status */}
                         <div className="mb-4">
-                            <p><span className="text-indigo-700">Payment Method:</span> {selectedOrder.paymentMethod}</p>
-                            <p><span className="text-indigo-700">Paid:</span> {selectedOrder.isPaid ? "Yes" : "No"}</p>
+                            <p><span className="text-orange-600">Payment Method:</span> {selectedOrder.paymentMethod}</p>
+                            <p><span className="text-orange-600">Paid:</span> {selectedOrder.isPaid ? "Yes" : "No"}</p>
                             {selectedOrder.isCouponUsed && (
-                                <p><span className="text-indigo-700">Coupon:</span> {selectedOrder.coupon.code} ({selectedOrder.coupon.discount}% off)</p>
+                                <p><span className="text-orange-600">Coupon:</span> {selectedOrder.coupon.code} ({selectedOrder.coupon.discount}% off)</p>
                             )}
-                            <p><span className="text-indigo-700">Status:</span> {selectedOrder.status}</p>
-                            <p><span className="text-indigo-700">Order Date:</span> {new Date(selectedOrder.createdAt).toLocaleString()}</p>
+                            <p><span className="text-orange-600">Status:</span> {selectedOrder.status}</p>
+                            <p><span className="text-orange-600">Order Date:</span> {new Date(selectedOrder.createdAt).toLocaleString()}</p>
                         </div>
 
                         {/* Actions */}

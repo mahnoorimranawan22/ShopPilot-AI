@@ -56,7 +56,7 @@ export default function StoreReviews() {
                                     <span className="w-3 text-slate-500">{d.rating}</span>
                                     <StarIcon size={12} fill="#6366f1" className="text-transparent" />
                                     <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                        <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${pct}%` }} />
+                                        <div className="h-full bg-orange-500 rounded-full" style={{ width: `${pct}%` }} />
                                     </div>
                                     <span className="w-6 text-right text-slate-400">{d.count}</span>
                                 </div>
@@ -69,7 +69,7 @@ export default function StoreReviews() {
             {/* Filter */}
             <div className="flex gap-2 mb-4">
                 {['all', 5, 4, 3, 2, 1].map(f => (
-                    <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${filter === f ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${filter === f ? 'bg-orange-500 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                         {f === 'all' ? 'All' : `${f} ★`}
                     </button>
                 ))}
@@ -80,7 +80,7 @@ export default function StoreReviews() {
                 {filtered.map(review => (
                     <div key={review.id} className="bg-white border border-slate-200 rounded-xl p-5">
                         <div className="flex items-start gap-3">
-                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
                                 {review.user[0]}
                             </div>
                             <div className="flex-1">
@@ -89,14 +89,14 @@ export default function StoreReviews() {
                                     <div className="flex">{Array(5).fill('').map((_, j) => <StarIcon key={j} size={12} fill={j < review.rating ? "#6366f1" : "#D1D5DB"} className="text-transparent" />)}</div>
                                     <span className="text-xs text-slate-400">{review.date}</span>
                                 </div>
-                                <p className="text-xs text-indigo-600 mt-0.5">{review.product}</p>
+                                <p className="text-xs text-orange-500 mt-0.5">{review.product}</p>
                                 <p className="text-sm text-slate-600 mt-2">{review.text}</p>
                                 <div className="flex items-center gap-4 mt-3">
-                                    <button className="flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 transition">
+                                    <button className="flex items-center gap-1 text-xs text-slate-400 hover:text-orange-500 transition">
                                         <ThumbsUpIcon size={12} /> {review.helpful} helpful
                                     </button>
                                     {!review.replied ? (
-                                        <button className="flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium transition">
+                                        <button className="flex items-center gap-1 text-xs text-orange-500 hover:text-orange-600 font-medium transition">
                                             <MessageSquareIcon size={12} /> Reply
                                         </button>
                                     ) : (

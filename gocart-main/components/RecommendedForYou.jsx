@@ -27,7 +27,7 @@ function RecProductCard({ item, index }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.4 }}
-            className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-100 transition-all duration-300 overflow-hidden flex-shrink-0 w-[200px] sm:w-[220px]"
+            className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-100 transition-all duration-300 overflow-hidden flex-shrink-0 w-[200px] sm:w-[220px]"
         >
             {/* Discount badge */}
             {discount > 0 && (
@@ -61,7 +61,7 @@ function RecProductCard({ item, index }) {
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                        <SparklesIcon className="w-10 h-10 text-indigo-300" />
+                        <SparklesIcon className="w-10 h-10 text-orange-300" />
                     </div>
                 )}
             </Link>
@@ -69,10 +69,10 @@ function RecProductCard({ item, index }) {
             {/* Content */}
             <div className="p-3.5">
                 {product.brand && (
-                    <p className="text-[10px] font-semibold text-indigo-500 uppercase tracking-wider mb-0.5">{product.brand}</p>
+                    <p className="text-[10px] font-semibold text-orange-500 uppercase tracking-wider mb-0.5">{product.brand}</p>
                 )}
                 <Link href={`/product/${id}`}>
-                    <h4 className="text-xs font-bold text-slate-800 line-clamp-2 mb-1.5 leading-snug hover:text-indigo-600 transition-colors min-h-[30px]">
+                    <h4 className="text-xs font-bold text-slate-800 line-clamp-2 mb-1.5 leading-snug hover:text-orange-500 transition-colors min-h-[30px]">
                         {product.name}
                     </h4>
                 </Link>
@@ -103,7 +103,7 @@ function RecProductCard({ item, index }) {
                 {reasons && reasons.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1">
                         {reasons.slice(0, 2).map((reason, i) => (
-                            <span key={i} className="text-[9px] font-medium bg-indigo-50 text-indigo-600 px-1.5 py-0.5 rounded-full">
+                            <span key={i} className="text-[9px] font-medium bg-orange-50 text-orange-500 px-1.5 py-0.5 rounded-full">
                                 {reason}
                             </span>
                         ))}
@@ -118,7 +118,7 @@ function RecProductCard({ item, index }) {
                         window.dispatchEvent(new CustomEvent('add-to-cart', { detail: { productId: id } }))
                         aiAPI.trackBehavior('cart', { productId: id }).catch(() => {})
                     }}
-                    className="w-full mt-2.5 py-1.5 bg-slate-900 hover:bg-indigo-600 text-white text-[11px] font-medium rounded-lg flex items-center justify-center gap-1 transition-colors"
+                    className="w-full mt-2.5 py-1.5 bg-slate-900 hover:bg-orange-500 text-white text-[11px] font-medium rounded-lg flex items-center justify-center gap-1 transition-colors"
                 >
                     <ShoppingCartIcon size={12} />
                     Add to Cart
@@ -179,7 +179,7 @@ export default function RecommendedForYou() {
         return (
             <section className="py-10 px-6 max-w-7xl mx-auto">
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center">
                         <SparklesIcon size={16} className="text-white" />
                     </div>
                     <div>
@@ -201,7 +201,7 @@ export default function RecommendedForYou() {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
                         <SparklesIcon size={16} className="text-white" />
                     </div>
                     <div>
@@ -211,7 +211,7 @@ export default function RecommendedForYou() {
                 </div>
                 <Link
                     href="/shop"
-                    className="hidden sm:flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-700 transition"
+                    className="hidden sm:flex items-center gap-1 text-xs font-medium text-orange-500 hover:text-orange-600 transition"
                 >
                     View all <ArrowRightIcon size={14} />
                 </Link>
@@ -221,12 +221,12 @@ export default function RecommendedForYou() {
             {data.type === 'personalized' && data.profileSummary && (
                 <div className="flex items-center gap-2 mb-4">
                     {data.profileSummary.topCategories?.slice(0, 3).map((cat, i) => (
-                        <span key={i} className="text-[10px] font-medium bg-indigo-50 text-indigo-600 px-2.5 py-1 rounded-full">
+                        <span key={i} className="text-[10px] font-medium bg-orange-50 text-orange-500 px-2.5 py-1 rounded-full">
                             {cat}
                         </span>
                     ))}
                     {data.profileSummary.topBrands?.slice(0, 2).map((brand, i) => (
-                        <span key={`b${i}`} className="text-[10px] font-medium bg-violet-50 text-violet-600 px-2.5 py-1 rounded-full">
+                        <span key={`b${i}`} className="text-[10px] font-medium bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full">
                             {brand}
                         </span>
                     ))}
@@ -235,8 +235,8 @@ export default function RecommendedForYou() {
 
             {data.type === 'trending' && (
                 <div className="flex items-center gap-2 mb-4">
-                    <TrendingUpIcon size={14} className="text-indigo-500" />
-                    <span className="text-[10px] font-medium text-indigo-600">Based on popularity and ratings</span>
+                    <TrendingUpIcon size={14} className="text-orange-500" />
+                    <span className="text-[10px] font-medium text-orange-500">Based on popularity and ratings</span>
                 </div>
             )}
 
@@ -251,7 +251,7 @@ export default function RecommendedForYou() {
             <div className="sm:hidden mt-4 text-center">
                 <Link
                     href="/shop"
-                    className="inline-flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-700"
+                    className="inline-flex items-center gap-1 text-xs font-medium text-orange-500 hover:text-orange-600"
                 >
                     View all recommendations <ArrowRightIcon size={14} />
                 </Link>

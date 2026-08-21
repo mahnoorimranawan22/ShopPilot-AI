@@ -26,7 +26,7 @@ export default function AdminCustomers() {
     let filtered = search ? customers.filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || c.email.toLowerCase().includes(search.toLowerCase())) : customers
     if (roleFilter !== 'all') filtered = filtered.filter(c => c.role === roleFilter)
 
-    const roleColors = { buyer: 'bg-slate-100 text-slate-600', seller: 'bg-indigo-100 text-indigo-700', admin: 'bg-amber-100 text-amber-700' }
+    const roleColors = { buyer: 'bg-slate-100 text-slate-600', seller: 'bg-orange-100 text-orange-600', admin: 'bg-amber-100 text-amber-700' }
 
     return (
         <div className="text-slate-500 mb-28 max-w-6xl">
@@ -37,7 +37,7 @@ export default function AdminCustomers() {
                     <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search customers..." className="flex-1 text-sm outline-none" />
                 </div>
                 {['all', 'buyer', 'seller', 'admin'].map(r => (
-                    <button key={r} onClick={() => setRoleFilter(r)} className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition ${roleFilter === r ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>{r}</button>
+                    <button key={r} onClick={() => setRoleFilter(r)} className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition ${roleFilter === r ? 'bg-orange-500 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>{r}</button>
                 ))}
             </div>
             <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
@@ -58,7 +58,7 @@ export default function AdminCustomers() {
                             <tr key={c.id} className="border-t border-slate-100 hover:bg-slate-50">
                                 <td className="px-5 py-3">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-bold">{c.name[0]}</div>
+                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-xs font-bold">{c.name[0]}</div>
                                         <span className="font-medium text-slate-700">{c.name}</span>
                                     </div>
                                 </td>

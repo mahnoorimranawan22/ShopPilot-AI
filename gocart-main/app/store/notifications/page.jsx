@@ -4,7 +4,7 @@ import Loading from "@/components/Loading"
 import { BellIcon, ShoppingBagIcon, StarIcon, AlertTriangleIcon, CheckCircleIcon, PackageIcon } from "lucide-react"
 
 const demoNotifications = [
-    { id: 1, type: 'order', title: 'New order received', text: 'Order #ORD-1247 from Jane Customer — $478.99', time: '2 min ago', read: false, icon: ShoppingBagIcon, color: 'text-indigo-600 bg-indigo-50' },
+    { id: 1, type: 'order', title: 'New order received', text: 'Order #ORD-1247 from Jane Customer — $478.99', time: '2 min ago', read: false, icon: ShoppingBagIcon, color: 'text-orange-500 bg-orange-50' },
     { id: 2, type: 'review', title: 'New 5★ review', text: 'Jane C. reviewed AirPods Pro — "Absolutely love this product!"', time: '1h ago', read: false, icon: StarIcon, color: 'text-amber-600 bg-amber-50' },
     { id: 3, type: 'order', title: 'Order shipped', text: 'Order #ORD-1246 has been marked as shipped', time: '2h ago', read: true, icon: CheckCircleIcon, color: 'text-green-600 bg-green-50' },
     { id: 4, type: 'stock', title: 'Low stock alert', text: 'Canon EOS R50 has only 18 units remaining', time: '5h ago', read: true, icon: AlertTriangleIcon, color: 'text-amber-600 bg-amber-50' },
@@ -36,14 +36,14 @@ export default function StoreNotifications() {
                     {unread > 0 && <p className="text-sm text-slate-400 mt-0.5">{unread} unread</p>}
                 </div>
                 {unread > 0 && (
-                    <button onClick={markAllRead} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">Mark all read</button>
+                    <button onClick={markAllRead} className="text-xs text-orange-500 hover:text-orange-600 font-medium">Mark all read</button>
                 )}
             </div>
 
             {/* Filters */}
             <div className="flex gap-2 mb-4 flex-wrap">
                 {['all', 'unread', 'order', 'review', 'stock'].map(f => (
-                    <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition ${filter === f ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition ${filter === f ? 'bg-orange-500 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                         {f}
                     </button>
                 ))}
@@ -52,14 +52,14 @@ export default function StoreNotifications() {
             {/* Notifications */}
             <div className="space-y-2">
                 {filtered.map(n => (
-                    <div key={n.id} className={`flex items-start gap-4 p-4 rounded-xl border transition hover:shadow-sm ${n.read ? 'bg-white border-slate-100' : 'bg-indigo-50/30 border-indigo-100'}`}>
+                    <div key={n.id} className={`flex items-start gap-4 p-4 rounded-xl border transition hover:shadow-sm ${n.read ? 'bg-white border-slate-100' : 'bg-orange-50/30 border-orange-100'}`}>
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${n.color}`}>
                             <n.icon size={18} />
                         </div>
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
                                 <p className="text-sm font-medium text-slate-700">{n.title}</p>
-                                {!n.read && <span className="w-2 h-2 rounded-full bg-indigo-500" />}
+                                {!n.read && <span className="w-2 h-2 rounded-full bg-orange-500" />}
                             </div>
                             <p className="text-xs text-slate-500 mt-0.5">{n.text}</p>
                             <p className="text-[10px] text-slate-400 mt-1">{n.time}</p>

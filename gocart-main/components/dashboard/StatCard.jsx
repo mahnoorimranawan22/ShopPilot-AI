@@ -3,9 +3,9 @@ import { TrendingUpIcon, TrendingDownIcon } from 'lucide-react'
 
 export default function StatCard({ title, value, change, changeLabel, icon: Icon, color = 'indigo', sparkData, suffix }) {
     const colors = {
-        indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', ring: 'ring-indigo-100' },
+        indigo: { bg: 'bg-orange-50', text: 'text-orange-500', ring: 'ring-orange-100' },
         green: { bg: 'bg-emerald-50', text: 'text-emerald-600', ring: 'ring-emerald-100' },
-        violet: { bg: 'bg-violet-50', text: 'text-violet-600', ring: 'ring-violet-100' },
+        violet: { bg: 'bg-rose-50', text: 'text-rose-600', ring: 'ring-rose-100' },
         amber: { bg: 'bg-amber-50', text: 'text-amber-600', ring: 'ring-amber-100' },
         rose: { bg: 'bg-rose-50', text: 'text-rose-600', ring: 'ring-rose-100' },
         cyan: { bg: 'bg-cyan-50', text: 'text-cyan-600', ring: 'ring-cyan-100' },

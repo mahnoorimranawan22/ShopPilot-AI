@@ -18,11 +18,13 @@
 }
 
 :root {
-    --brand-primary: #6366f1;
-    --brand-primary-hover: #4f46e5;
-    --brand-accent: #22d3ee;
-    --brand-accent-dark: #06b6d4;
-    --brand-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+    --brand-primary: #f97316;
+    --brand-primary-hover: #ea580c;
+    --brand-secondary: #e11d48;
+    --brand-accent: #7c3aed;
+    --brand-accent-dark: #6d28d9;
+    --brand-gradient: linear-gradient(135deg, #f97316, #e11d48, #7c3aed);
+    --brand-surface: #fff7ed;
 }
 
 .no-scrollbar::-webkit-scrollbar {

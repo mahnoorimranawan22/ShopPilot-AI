@@ -5,6 +5,7 @@ import Newsletter from "@/components/Newsletter";
 import OurSpecs from "@/components/OurSpec";
 import LatestProducts from "@/components/LatestProducts";
 import RecommendedForYou from "@/components/RecommendedForYou";
+import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '@/lib/features/product/productSlice'
@@ -15,9 +16,7 @@ export default function Home() {
     const { list: products } = useSelector(state => state.product)
 
     useEffect(() => {
-        // Fetch products from API, fall back to dummy data if API unavailable
         dispatch(fetchProducts()).unwrap().catch(() => {
-            // API not available (no DB connected) — load dummy data as fallback
             dispatch({ type: 'product/setProduct', payload: productDummyData })
         })
     }, [dispatch])
@@ -25,11 +24,21 @@ export default function Home() {
     return (
         <div>
             <Hero />
-            <LatestProducts />
-            <RecommendedForYou />
-            <BestSelling />
-            <OurSpecs />
-            <Newsletter />
+            <AnimateOnScroll>
+                <LatestProducts />
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.1}>
+                <RecommendedForYou />
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.1}>
+                <BestSelling />
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.1}>
+                <OurSpecs />
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.1}>
+                <Newsletter />
+            </AnimateOnScroll>
         </div>
     );
 }

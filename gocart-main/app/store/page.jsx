@@ -186,7 +186,7 @@ export default function Dashboard() {
             {/* Tables Row */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
                 {/* Recent Orders */}
-                <SectionCard title="Recent Orders" action={<button onClick={() => router.push('/store/orders')} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">View all →</button>}>
+                <SectionCard title="Recent Orders" action={<button onClick={() => router.push('/store/orders')} className="text-xs text-orange-500 hover:text-orange-600 font-medium">View all →</button>}>
                     <div className="space-y-3">
                         {data.recentOrders.map((order, i) => (
                             <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
@@ -206,7 +206,7 @@ export default function Dashboard() {
                 </SectionCard>
 
                 {/* Top Products */}
-                <SectionCard title="Top Products" subtitle="By units sold" action={<button onClick={() => router.push('/store/manage-product')} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">Manage →</button>}>
+                <SectionCard title="Top Products" subtitle="By units sold" action={<button onClick={() => router.push('/store/manage-product')} className="text-xs text-orange-500 hover:text-orange-600 font-medium">Manage →</button>}>
                     <div className="space-y-3">
                         {data.topProducts.map((product, i) => (
                             <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
@@ -230,11 +230,11 @@ export default function Dashboard() {
             </div>
 
             {/* Recent Reviews */}
-            <SectionCard title="Recent Reviews" subtitle="Latest customer feedback" action={<button onClick={() => router.push('/store/reviews')} className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">View all →</button>}>
+            <SectionCard title="Recent Reviews" subtitle="Latest customer feedback" action={<button onClick={() => router.push('/store/reviews')} className="text-xs text-orange-500 hover:text-orange-600 font-medium">View all →</button>}>
                 <div className="space-y-3">
                     {data.recentReviews.map((review, i) => (
                         <div key={i} className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
                                 {review.user[0]}
                             </div>
                             <div className="flex-1">

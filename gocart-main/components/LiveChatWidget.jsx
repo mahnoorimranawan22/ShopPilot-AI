@@ -90,7 +90,7 @@ export default function LiveChatWidget() {
             {!isOpen && (
                 <button
                     onClick={() => { setIsOpen(true); setIsMinimized(false); setUnread(0) }}
-                    className="fixed bottom-6 right-6 z-50 bg-indigo-600 text-white w-14 h-14 rounded-full shadow-lg hover:bg-indigo-700 hover:shadow-xl transition-all flex items-center justify-center active:scale-95"
+                    className="fixed bottom-6 right-6 z-50 bg-orange-500 text-white w-14 h-14 rounded-full shadow-lg hover:bg-orange-600 hover:shadow-xl transition-all flex items-center justify-center active:scale-95"
                 >
                     <MessageCircleIcon size={24} />
                     {unread > 0 && (
@@ -105,12 +105,12 @@ export default function LiveChatWidget() {
             {isOpen && (
                 <div className={`fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all ${isMinimized ? 'h-14' : 'h-[480px]'} flex flex-col`}>
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-4 py-3 flex items-center justify-between shrink-0">
+                    <div className="bg-gradient-to-r from-orange-500 to-rose-600 text-white px-4 py-3 flex items-center justify-between shrink-0">
                         <div className="flex items-center gap-2">
                             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">SP</div>
                             <div>
                                 <p className="text-sm font-semibold">ShopPilot Support</p>
-                                <p className="text-[10px] text-indigo-200">Usually replies in minutes</p>
+                                <p className="text-[10px] text-orange-200">Usually replies in minutes</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-1">
@@ -134,9 +134,9 @@ export default function LiveChatWidget() {
                                                 <p className="text-[10px] text-slate-400 mb-0.5 px-1">{msg.senderName}</p>
                                             )}
                                             <div className={`px-3 py-2 rounded-2xl text-sm ${msg.sender === userData?.id || msg.sender === (userData?.id || 'guest')
-                                                ? 'bg-indigo-600 text-white rounded-br-md'
+                                                ? 'bg-orange-500 text-white rounded-br-md'
                                                 : msg.senderRole === 'system'
-                                                    ? 'bg-indigo-100 text-indigo-800 text-center text-xs'
+                                                    ? 'bg-orange-100 text-orange-800 text-center text-xs'
                                                     : 'bg-white text-slate-700 border border-slate-200 rounded-bl-md'
                                             }`}>
                                                 {msg.message}
@@ -169,9 +169,9 @@ export default function LiveChatWidget() {
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Type a message..."
-                                        className="flex-1 text-sm bg-slate-100 rounded-full px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-200 transition"
+                                        className="flex-1 text-sm bg-slate-100 rounded-full px-4 py-2.5 outline-none focus:ring-2 focus:ring-orange-200 transition"
                                     />
-                                    <button type="submit" disabled={!message.trim()} className="bg-indigo-600 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-indigo-700 transition disabled:opacity-40">
+                                    <button type="submit" disabled={!message.trim()} className="bg-orange-500 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-orange-600 transition disabled:opacity-40">
                                         <SendIcon size={16} />
                                     </button>
                                 </div>

@@ -7,6 +7,8 @@ import { ordersAPI } from "@/lib/api"
 import { useSelector } from "react-redux"
 import { PackageIcon } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
+import PageTransition from "@/components/ui/PageTransition"
 
 export default function Orders() {
 
@@ -35,12 +37,13 @@ export default function Orders() {
     if (loading) {
         return (
             <div className="min-h-[70vh] mx-6 flex items-center justify-center">
-                <div className="animate-spin h-8 w-8 border-2 border-indigo-600 border-t-transparent rounded-full" />
+                <div className="animate-spin h-8 w-8 border-2 border-orange-500 border-t-transparent rounded-full" />
             </div>
         )
     }
 
     return orders.length > 0 ? (
+        <PageTransition>
         <div className="min-h-[70vh] mx-6">
             <div className="my-20 max-w-7xl mx-auto">
                 <PageTitle heading="My Orders" text={`Showing total ${orders.length} orders`} linkText={'Go to home'} />
@@ -61,14 +64,17 @@ export default function Orders() {
                 </table>
             </div>
         </div>
+        </PageTransition>
     ) : (
+        <PageTransition>
         <div className="min-h-[80vh] mx-6 flex flex-col items-center justify-center text-slate-400 gap-4">
             <PackageIcon size={64} strokeWidth={1} className="text-slate-300" />
             <h1 className="text-2xl sm:text-4xl font-semibold">You have no orders</h1>
             <p className="text-sm">Start shopping to see your orders here</p>
-            <Link href="/shop" className="bg-indigo-600 text-white px-8 py-2.5 rounded-full hover:bg-indigo-700 transition text-sm">
+            <Link href="/shop" className="bg-orange-500 text-white px-8 py-2.5 rounded-full hover:bg-orange-600 transition text-sm">
                 Browse Products
             </Link>
         </div>
+        </PageTransition>
     )
 }

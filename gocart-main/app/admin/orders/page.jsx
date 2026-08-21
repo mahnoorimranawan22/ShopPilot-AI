@@ -29,7 +29,7 @@ export default function AdminOrders() {
             <h1 className="text-2xl mb-4">Platform <span className="text-slate-800 font-medium">Orders</span></h1>
             <div className="flex items-center gap-3 mb-4 flex-wrap">
                 {['all', 'ORDER_PLACED', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED'].map(s => (
-                    <button key={s} onClick={() => setStatusFilter(s)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${statusFilter === s ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    <button key={s} onClick={() => setStatusFilter(s)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${statusFilter === s ? 'bg-orange-500 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                         {s === 'all' ? 'All' : s.replace('_', ' ')}
                     </button>
                 ))}

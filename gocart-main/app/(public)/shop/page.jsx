@@ -1,11 +1,16 @@
 'use client'
 import { Suspense, useEffect, useState, useCallback } from "react"
 import ProductCard from "@/components/ProductCard"
-import { MoveLeftIcon, SlidersHorizontalIcon, XIcon, SearchIcon, ChevronDownIcon } from "lucide-react"
+import { MoveLeftIcon, SlidersHorizontalIcon, XIcon, SearchIcon, ChevronDownIcon, MicIcon } from "lucide-react"
+import VisualSearchButton from "@/components/VisualSearchButton"
+import { useVoiceSearch } from "@/components/ui/useVoiceSearch"
 import { useRouter, useSearchParams } from "next/navigation"
+import toast from "react-hot-toast"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchProducts, setProduct } from "@/lib/features/product/productSlice"
 import { productDummyData } from "@/assets/assets"
+
+import PageTransition from '@/components/ui/PageTransition'
 
 function ShopContent() {
     const searchParams = useSearchParams()
@@ -92,7 +97,23 @@ function ShopContent() {
 
     const activeFilterCount = [selectedCategory, selectedBrand, priceRange[0] > 0, priceRange[1] < 1000].filter(Boolean).length
 
+    // Voice search
+    const handleVoiceResult = useCallback((text) => {
+        setSearchInput(text)
+        handleSearchInput(text)
+        // Auto-search after voice input
+        setTimeout(() => {
+            router.push(`/shop?search=${encodeURIComponent(text)}`)
+        }, 200)
+    }, [handleSearchInput, router])
+
+    const { isListening, isSupported: voiceSupported, toggleListening } = useVoiceSearch({
+        onResult: handleVoiceResult,
+        onError: (msg) => toast.error(msg),
+    })
+
     return (
+        <PageTransition>
         <div className="min-h-[70vh] mx-6">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
@@ -103,11 +124,12 @@ function ShopContent() {
                         {search && <span className="text-sm text-slate-400">— &quot;{search}&quot;</span>}
                     </h1>
                     <div className="flex items-center gap-3">
+                        <VisualSearchButton />
                         <button onClick={() => setShowFilters(!showFilters)} className="flex items-center gap-2 text-sm text-slate-600 border border-slate-200 px-4 py-2 rounded-lg hover:bg-slate-50 transition">
                             <SlidersHorizontalIcon size={16} />
                             Filters
                             {activeFilterCount > 0 && (
-                                <span className="bg-indigo-600 text-white text-xs px-1.5 py-0.5 rounded-full">{activeFilterCount}</span>
+                                <span className="bg-orange-500 text-white text-xs px-1.5 py-0.5 rounded-full">{activeFilterCount}</span>
                             )}
                         </button>
                         <select value={`${sortBy}-${sortOrder}`} onChange={(e) => {
@@ -141,7 +163,21 @@ function ShopContent() {
                                 <XIcon size={16} />
                             </button>
                         )}
-                        <button type="submit" className="bg-indigo-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-indigo-700 transition">Search</button>
+                        {voiceSupported && (
+                            <button
+                                type="button"
+                                onClick={(e) => { e.preventDefault(); toggleListening() }}
+                                className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
+                                    isListening
+                                        ? 'bg-red-500 text-white animate-pulse'
+                                        : 'text-slate-400 hover:text-orange-500 hover:bg-orange-50'
+                                }`}
+                                title={isListening ? 'Listening...' : 'Voice search'}
+                            >
+                                <MicIcon size={16} />
+                            </button>
+                        )}
+                        <button type="submit" className="bg-orange-500 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-orange-600 transition">Search</button>
                     </form>
                     {/* Autocomplete dropdown */}
                     {suggestions.length > 0 && (
@@ -171,16 +207,16 @@ function ShopContent() {
                     <div className="bg-white border border-slate-200 rounded-xl p-5 mb-6">
                         <div className="flex items-center justify-between mb-4">
                             <h3 className="font-medium text-slate-700">Filters</h3>
-                            <button onClick={() => { setSelectedCategory(''); setSelectedBrand(''); setPriceRange([0, 1000]) }} className="text-xs text-indigo-600 hover:text-indigo-700">Clear all</button>
+                            <button onClick={() => { setSelectedCategory(''); setSelectedBrand(''); setPriceRange([0, 1000]) }} className="text-xs text-orange-500 hover:text-orange-600">Clear all</button>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             {/* Categories */}
                             <div>
                                 <p className="text-xs font-medium text-slate-500 mb-2 uppercase">Category</p>
                                 <div className="space-y-1.5 max-h-40 overflow-y-auto">
-                                    <button onClick={() => setSelectedCategory('')} className={`block text-sm w-full text-left px-2 py-1 rounded ${!selectedCategory ? 'bg-indigo-50 text-indigo-600 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>All</button>
+                                    <button onClick={() => setSelectedCategory('')} className={`block text-sm w-full text-left px-2 py-1 rounded ${!selectedCategory ? 'bg-orange-50 text-orange-500 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>All</button>
                                     {categories.map(cat => (
-                                        <button key={cat} onClick={() => setSelectedCategory(selectedCategory === cat ? '' : cat)} className={`block text-sm w-full text-left px-2 py-1 rounded ${selectedCategory === cat ? 'bg-indigo-50 text-indigo-600 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>{cat}</button>
+                                        <button key={cat} onClick={() => setSelectedCategory(selectedCategory === cat ? '' : cat)} className={`block text-sm w-full text-left px-2 py-1 rounded ${selectedCategory === cat ? 'bg-orange-50 text-orange-500 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>{cat}</button>
                                     ))}
                                 </div>
                             </div>
@@ -188,9 +224,9 @@ function ShopContent() {
                             <div>
                                 <p className="text-xs font-medium text-slate-500 mb-2 uppercase">Brand</p>
                                 <div className="space-y-1.5 max-h-40 overflow-y-auto">
-                                    <button onClick={() => setSelectedBrand('')} className={`block text-sm w-full text-left px-2 py-1 rounded ${!selectedBrand ? 'bg-indigo-50 text-indigo-600 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>All</button>
+                                    <button onClick={() => setSelectedBrand('')} className={`block text-sm w-full text-left px-2 py-1 rounded ${!selectedBrand ? 'bg-orange-50 text-orange-500 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>All</button>
                                     {brands.map(brand => (
-                                        <button key={brand} onClick={() => setSelectedBrand(selectedBrand === brand ? '' : brand)} className={`block text-sm w-full text-left px-2 py-1 rounded ${selectedBrand === brand ? 'bg-indigo-50 text-indigo-600 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>{brand}</button>
+                                        <button key={brand} onClick={() => setSelectedBrand(selectedBrand === brand ? '' : brand)} className={`block text-sm w-full text-left px-2 py-1 rounded ${selectedBrand === brand ? 'bg-orange-50 text-orange-500 font-medium' : 'text-slate-600 hover:bg-slate-50'}`}>{brand}</button>
                                     ))}
                                 </div>
                             </div>
@@ -211,13 +247,13 @@ function ShopContent() {
                 {(selectedCategory || selectedBrand) && (
                     <div className="flex flex-wrap gap-2 mb-4">
                         {selectedCategory && (
-                            <span className="flex items-center gap-1 text-xs bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-full">
+                            <span className="flex items-center gap-1 text-xs bg-orange-50 text-orange-500 px-3 py-1.5 rounded-full">
                                 {selectedCategory}
                                 <button onClick={() => setSelectedCategory('')}><XIcon size={12} /></button>
                             </span>
                         )}
                         {selectedBrand && (
-                            <span className="flex items-center gap-1 text-xs bg-violet-50 text-violet-600 px-3 py-1.5 rounded-full">
+                            <span className="flex items-center gap-1 text-xs bg-rose-50 text-rose-600 px-3 py-1.5 rounded-full">
                                 {selectedBrand}
                                 <button onClick={() => setSelectedBrand('')}><XIcon size={12} /></button>
                             </span>
@@ -249,13 +285,14 @@ function ShopContent() {
                     <div className="flex flex-col items-center justify-center py-32 text-slate-400">
                         <p className="text-xl font-semibold text-slate-500 mb-2">No products found</p>
                         <p className="text-sm mb-6">Try adjusting your filters or search term</p>
-                        <button onClick={() => { setSelectedCategory(''); setSelectedBrand(''); setSearchInput(''); router.push('/shop') }} className="bg-indigo-600 text-white px-6 py-2.5 rounded-full text-sm hover:bg-indigo-700 transition">
+                        <button onClick={() => { setSelectedCategory(''); setSelectedBrand(''); setSearchInput(''); router.push('/shop') }} className="bg-orange-500 text-white px-6 py-2.5 rounded-full text-sm hover:bg-orange-600 transition">
                             Clear Filters
                         </button>
                     </div>
                 )}
             </div>
         </div>
+        </PageTransition>
     )
 }
 

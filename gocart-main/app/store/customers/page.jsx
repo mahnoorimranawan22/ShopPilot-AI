@@ -46,7 +46,7 @@ export default function StoreCustomers() {
                             <tr key={customer.id} className="border-t border-slate-100 hover:bg-slate-50 transition">
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white text-xs font-bold">
+                                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center text-white text-xs font-bold">
                                             {customer.name[0]}
                                         </div>
                                         <p className="font-medium text-slate-700">{customer.name}</p>
@@ -54,7 +54,7 @@ export default function StoreCustomers() {
                                 </td>
                                 <td className="px-6 py-4 hidden md:table-cell text-slate-500">{customer.email}</td>
                                 <td className="px-6 py-4 text-center">
-                                    <span className="inline-flex items-center gap-1 text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded-full">
+                                    <span className="inline-flex items-center gap-1 text-xs font-medium text-orange-500 bg-orange-50 px-2 py-1 rounded-full">
                                         <ShoppingBagIcon size={12} />
                                         {customer.orders}
                                     </span>

@@ -63,7 +63,7 @@ export default function AdminProducts() {
                                 </td>
                                 <td className="px-5 py-3 text-center">
                                     <div className="flex items-center justify-center gap-1">
-                                        <Link href={`/product/${p.id}`} className="p-1.5 text-slate-400 hover:text-indigo-600 transition"><EyeIcon size={15} /></Link>
+                                        <Link href={`/product/${p.id}`} className="p-1.5 text-slate-400 hover:text-orange-500 transition"><EyeIcon size={15} /></Link>
                                         <button className="p-1.5 text-slate-400 hover:text-red-600 transition"><Trash2Icon size={15} /></button>
                                     </div>
                                 </td>
