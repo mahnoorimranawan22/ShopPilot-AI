@@ -2,6 +2,7 @@
 import { assets } from '@/assets/assets'
 import { ArrowRightIcon, SparklesIcon } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
 import CategoriesMarquee from './CategoriesMarquee'
@@ -90,12 +91,18 @@ const Hero = () => {
                     </div>
 
                     {/* Hero Model Image */}
-                    <motion.img
+                    <motion.div
                         variants={fadeUp}
                         className='sm:absolute bottom-0 right-0 md:right-10 w-full sm:max-w-sm opacity-90'
-                        src={assets.hero_model_img}
-                        alt=""
-                    />
+                    >
+                        <Image
+                            src={assets.hero_model_img}
+                            alt="Shop smarter with AI"
+                            width={400}
+                            height={400}
+                            className='w-full h-auto'
+                        />
+                    </motion.div>
                 </motion.div>
 
                 {/* Side Cards */}
@@ -110,7 +117,7 @@ const Hero = () => {
                                 <p className="text-3xl font-bold max-w-40 text-rose-500">Best products</p>
                                 <p className='flex items-center gap-1 mt-4 text-rose-600 font-medium'>View more <ArrowRightIcon className='group-hover:ml-2 transition-all' size={18} /> </p>
                             </div>
-                            <img className='w-35' src={assets.hero_product_img1} alt="" />
+                            <Image className='w-35' src={assets.hero_product_img1} alt="Best products" width={140} height={140} />
                         </Link>
                     </motion.div>
                     <motion.div
@@ -123,7 +130,7 @@ const Hero = () => {
                                 <p className='text-3xl font-bold max-w-40 text-cyan-500'>20% discounts</p>
                                 <p className='flex items-center gap-1 mt-4 text-cyan-600 font-medium'>View more <ArrowRightIcon className='group-hover:ml-2 transition-all' size={18} /> </p>
                             </div>
-                            <img className='w-35' src={assets.hero_product_img2} alt="" />
+                            <Image className='w-35' src={assets.hero_product_img2} alt="20% discounts" width={140} height={140} />
                         </Link>
                     </motion.div>
                 </div>
