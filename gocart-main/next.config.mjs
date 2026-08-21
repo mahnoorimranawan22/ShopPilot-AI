@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
+    basePath: process.env.GITHUB_PAGES ? '/ShopPilot-AI' : '',
     images: {
         unoptimized: true,
         remotePatterns: [
@@ -11,6 +12,7 @@ const nextConfig = {
         ]
     },
     serverExternalPackages: ['@prisma/client'],
+    trailingSlash: true,
 };
 
 export default nextConfig;
