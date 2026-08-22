@@ -84,7 +84,7 @@ const seed = async () => {
         {
             name: 'Apple AirPods Pro (2nd Gen) USB-C',
             description: 'Active Noise Cancellation. Transparency mode. Personalized Spatial Audio. Up to 6 hours listening time. MagSafe case.',
-            mrp: 249.00, price: 199.00, images: ['https://images.unsplash.com/photo-1590658268037-6bf12f032f55?auto=format&fit=crop&q=80&w=500'],
+            mrp: 249.00, price: 199.00, images: ['https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&q=80&w=500'],
             category: 'Earbuds', brand: 'Apple', stock: 200, tags: ['wireless', 'noise-cancelling', 'apple'],
             avgRating: 4.8, ratingCount: 567, soldCount: 789,
         },
@@ -105,14 +105,14 @@ const seed = async () => {
         {
             name: 'Dyson V15 Detect Cordless Vacuum',
             description: 'Laser reveals microscopic dust. Piezo sensor particle count. HEPA filtration. 60 minutes suction. Converts to handheld.',
-            mrp: 749.99, price: 599.99, images: ['https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=500'],
+            mrp: 749.99, price: 599.99, images: ['https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&q=80&w=500'],
             category: 'Home', brand: 'Dyson', stock: 25, tags: ['cordless', 'hepa', 'premium'],
             avgRating: 4.6, ratingCount: 445, soldCount: 520,
         },
         {
             name: 'Philips Hue Smart Bulb Starter Kit',
             description: '4 White and Color Ambiance bulbs + Bridge. 16 million colors. App, voice, and automation control. Syncs with media.',
-            mrp: 179.99, price: 129.99, images: ['https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?auto=format&fit=crop&q=80&w=500'],
+            mrp: 179.99, price: 129.99, images: ['https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80&w=500'],
             category: 'Smart Home', brand: 'Philips', stock: 88, tags: ['smart-home', 'rgb', 'voice-control'],
             avgRating: 4.5, ratingCount: 334, soldCount: 410,
         },

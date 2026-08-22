@@ -5,6 +5,7 @@ import { XIcon, StarIcon, ShoppingCartIcon, HeartIcon, TruckIcon, ShieldIcon, Ch
 import { useDispatch } from 'react-redux'
 import { addToCart } from '@/lib/features/cart/cartSlice'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 export default function QuickView({ product, isOpen, onClose }) {
     const [currentImage, setCurrentImage] = useState(0)
@@ -61,10 +62,7 @@ export default function QuickView({ product, isOpen, onClose }) {
 
                                 {images.length > 0 && (
                                     <>
-                                        <img
-                                            src={images[currentImage]}
-                                            alt={product.name || product.productName}
-                                            className="w-full h-64 sm:h-full object-contain rounded-2xl"
+                                        <Image src={images[currentImage]} alt={product.name || product.productName} width={400} height={300} className="w-full h-64 sm:h-full object-contain rounded-2xl"
                                         />
                                         {images.length > 1 && (
                                             <>

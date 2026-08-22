@@ -8,6 +8,7 @@ import {
 import { aiAPI } from '@/lib/api'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 // ─── Similar Product Card ────────────────────────────────────
 function SimilarProductCard({ product, index, similarity }) {
@@ -31,10 +32,7 @@ function SimilarProductCard({ product, index, similarity }) {
             {/* Image */}
             <div className="relative h-44 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
                 {product.images?.[0] ? (
-                    <img
-                        src={product.images[0]}
-                        alt={product.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    <Image src={product.images[0]} alt={product.name} width={400} height={300} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center">

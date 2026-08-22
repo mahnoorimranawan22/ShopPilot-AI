@@ -7,6 +7,7 @@ import {
     ShoppingCartIcon, BarChart3Icon, ArrowDownIcon, ArrowUpIcon
 } from 'lucide-react'
 import { aiAPI } from '@/lib/api'
+import Image from 'next/image'
 
 // ─── Health Badge ────────────────────────────────────────────
 function HealthBadge({ health }) {
@@ -243,7 +244,7 @@ export default function InventoryIntelligence() {
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-2">
                                             {product.image ? (
-                                                <img src={product.image} alt="" className="w-8 h-8 rounded-lg object-cover" />
+                                                <Image src={product.image} alt="" width={200} height={200} className="w-8 h-8 rounded-lg object-cover" />
                                             ) : (
                                                 <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center">
                                                     <PackageIcon size={14} className="text-slate-400" />

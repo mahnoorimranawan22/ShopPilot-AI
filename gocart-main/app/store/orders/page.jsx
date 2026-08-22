@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import Loading from "@/components/Loading"
 import { orderDummyData } from "@/assets/assets"
+import Image from 'next/image'
 
 export default function StoreOrders() {
     const [orders, setOrders] = useState([])
@@ -119,10 +120,7 @@ export default function StoreOrders() {
                             <div className="space-y-2">
                                 {selectedOrder.orderItems.map((item, i) => (
                                     <div key={i} className="flex items-center gap-4 border border-slate-100 shadow rounded p-2">
-                                        <img
-                                            src={item.product.images?.[0].src || item.product.images?.[0]}
-                                            alt={item.product?.name}
-                                            className="w-16 h-16 object-cover rounded"
+                                        <Image src={item.product.images?.[0].src || item.product.images?.[0]} alt={item.product?.name} width={200} height={200} className="w-16 h-16 object-cover rounded"
                                         />
                                         <div className="flex-1">
                                             <p className="text-slate-800">{item.product?.name}</p>

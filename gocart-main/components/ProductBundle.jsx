@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '@/lib/features/cart/cartSlice'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 // ─── AI Bundle Generator ─────────────────────────────────────
 function generateBundles(product, allProducts) {
@@ -150,7 +151,7 @@ function BundleCard({ bundle, index, onAddAll }) {
                             <Link href={`/product/${item._id || item.id}`} className="flex items-center gap-2 group/item">
                                 <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center group-hover/item:border-orange-200 transition">
                                     {item.images?.[0] ? (
-                                        <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
+                                        <Image src={item.images[0]} alt={item.name} width={400} height={300} className="w-full h-full object-cover" />
                                     ) : (
                                         <PackageIcon size={20} className="text-slate-300" />
                                     )}

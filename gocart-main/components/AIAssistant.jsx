@@ -10,6 +10,7 @@ import { aiAPI } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useVoiceSearch } from './ui/useVoiceSearch'
+import Image from 'next/image'
 
 // ─── Product Recommendation Card ─────────────────────────────
 function ProductCard({ product, index, rank }) {
@@ -34,10 +35,7 @@ function ProductCard({ product, index, rank }) {
             {/* Image */}
             <div className="relative h-40 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
                 {product.image ? (
-                    <img
-                        src={product.image}
-                        alt={product.productName}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    <Image src={product.image} alt={product.productName} width={200} height={200} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
                             e.target.style.display = 'none'
                             e.target.nextSibling.style.display = 'flex'

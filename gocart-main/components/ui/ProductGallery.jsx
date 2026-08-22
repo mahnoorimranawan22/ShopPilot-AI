@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ZoomInIcon, ZoomOutIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+import Image from 'next/image'
 
 export default function ProductGallery({ images = [], alt = '' }) {
     const [current, setCurrent] = useState(0)
@@ -42,10 +43,7 @@ export default function ProductGallery({ images = [], alt = '' }) {
                         onMouseEnter={() => setIsZoomed(true)}
                         onMouseLeave={() => setIsZoomed(false)}
                     >
-                        <img
-                            src={images[current]}
-                            alt={alt}
-                            className="w-full h-[400px] sm:h-[500px] object-contain p-4 transition-transform duration-200"
+                        <Image src={images[current]} alt={alt} width={400} height={300} className="w-full h-[400px] sm:h-[500px] object-contain p-4 transition-transform duration-200"
                             style={isZoomed ? {
                                 transform: 'scale(2)',
                                 transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
@@ -101,7 +99,7 @@ export default function ProductGallery({ images = [], alt = '' }) {
                                     : 'border-transparent hover:border-slate-200'
                             }`}
                         >
-                            <img src={img} alt="" className="w-full h-full object-cover" />
+                            <Image src={img} alt="" width={400} height={300} className="w-full h-full object-cover" />
                             {i === current && (
                                 <motion.div
                                     layoutId="thumb-indicator"

@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart } from '@/lib/features/cart/cartSlice'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 // ─── Comparison Feature Row ──────────────────────────────────
 function ComparisonRow({ feature, p1, p2, highlight }) {
@@ -295,7 +296,7 @@ export default function ProductComparison({ isOpen, onClose }) {
                                             <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
                                                 <div className="w-12 h-12 rounded-lg bg-white overflow-hidden flex-shrink-0">
                                                     {selectedProducts[idx].images?.[0] ? (
-                                                        <img src={selectedProducts[idx].images[0]} alt="" className="w-full h-full object-cover" />
+                                                        <Image src={selectedProducts[idx].images[0]} alt="" width={400} height={300} className="w-full h-full object-cover" />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center text-slate-300">
                                                             <SparklesIcon size={16} />

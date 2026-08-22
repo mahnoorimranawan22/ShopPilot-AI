@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { SparklesIcon, TrendingUpIcon, StarIcon, HeartIcon, ShoppingCartIcon, ArrowRightIcon } from 'lucide-react'
 import { aiAPI } from '@/lib/api'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // ─── Recommendation Product Card ─────────────────────────────
 function RecProductCard({ item, index }) {
@@ -54,9 +55,11 @@ function RecProductCard({ item, index }) {
             {/* Image */}
             <Link href={`/product/${id}`} className="block relative h-40 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
                 {product.images && product.images[0] ? (
-                    <img
+                    <Image
                         src={product.images[0]}
                         alt={product.name}
+                        width={400}
+                        height={300}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                 ) : (
