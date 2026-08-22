@@ -248,7 +248,7 @@ export const productDummyData = [
 ];
 
 export const ourSpecsData = [
-    { title: "AI Recommendations", description: "Our AI analyzes your preferences to suggest products you'll actually love.", icon: BrainCircuitIcon, accent: '#6366f1' },
+    { title: "AI Recommendations", description: "Our AI analyzes your preferences to suggest products you'll actually love.", icon: BrainCircuitIcon, accent: '#f97316' },
     { title: "Free Shipping", description: "Enjoy fast, free delivery on every order — no conditions, just reliable doorstep.", icon: SendIcon, accent: '#05DF72' },
     { title: "24/7 Smart Support", description: "Get instant help from our AI assistant or connect with our expert team anytime.", icon: HeadsetIcon, accent: '#A684FF' }
 ]

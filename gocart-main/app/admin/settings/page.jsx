@@ -82,7 +82,7 @@ export default function AdminSettings() {
             {activeTab === 'appearance' && (
                 <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-5">
                     <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Primary Color</label>
-                        <div className="flex gap-2">{['#6366f1', '#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'].map(c => <div key={c} className="w-10 h-10 rounded-lg cursor-pointer ring-2 ring-offset-2 ring-transparent hover:ring-orange-400 transition" style={{ background: c }} />)}</div>
+                        <div className="flex gap-2">{['#f97316', '#f43f5e', '#3b82f6', '#10b981', '#f59e0b'].map(c => <div key={c} className="w-10 h-10 rounded-lg cursor-pointer ring-2 ring-offset-2 ring-transparent hover:ring-orange-400 transition" style={{ background: c }} />)}</div>
                     </div>
                     <div><label className="text-sm font-medium text-slate-600 mb-1.5 block">Footer Text</label><input defaultValue="ShopPilot AI — Smart Shopping, Powered by Intelligence" className="w-full p-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-orange-400" /></div>
                     <button onClick={handleSave} className="flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-orange-600 transition"><SaveIcon size={16} /> Save</button>

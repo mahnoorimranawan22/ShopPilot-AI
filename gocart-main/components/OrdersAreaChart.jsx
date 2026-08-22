@@ -25,7 +25,7 @@ export default function OrdersAreaChart({ allOrders }) {
                     <XAxis dataKey="date" />
                     <YAxis allowDecimals={false} label={{ value: 'Orders', angle: -90, position: 'insideLeft' }} />
                     <Tooltip />
-                    <Area type="monotone" dataKey="orders" stroke="#4f46e5" fill="#8884d8" strokeWidth={2} />
+                    <Area type="monotone" dataKey="orders" stroke="#e11d48" fill="#8884d8" strokeWidth={2} />
                 </AreaChart>
             </ResponsiveContainer>
         </div>

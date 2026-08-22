@@ -43,7 +43,7 @@ export default function StoreReviews() {
                 <SectionCard className="text-center">
                     <p className="text-4xl font-bold text-slate-800">{avgRating}</p>
                     <div className="flex justify-center mt-2">
-                        {Array(5).fill('').map((_, i) => <StarIcon key={i} size={18} fill={i < Math.round(avgRating) ? "#6366f1" : "#D1D5DB"} className="text-transparent" />)}
+                        {Array(5).fill('').map((_, i) => <StarIcon key={i} size={18} fill={i < Math.round(avgRating) ? "#f97316" : "#D1D5DB"} className="text-transparent" />)}
                     </div>
                     <p className="text-xs text-slate-400 mt-1">{reviews.length} reviews</p>
                 </SectionCard>
@@ -54,7 +54,7 @@ export default function StoreReviews() {
                             return (
                                 <div key={d.rating} className="flex items-center gap-3 text-xs">
                                     <span className="w-3 text-slate-500">{d.rating}</span>
-                                    <StarIcon size={12} fill="#6366f1" className="text-transparent" />
+                                    <StarIcon size={12} fill="#f97316" className="text-transparent" />
                                     <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
                                         <div className="h-full bg-orange-500 rounded-full" style={{ width: `${pct}%` }} />
                                     </div>
@@ -86,7 +86,7 @@ export default function StoreReviews() {
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 flex-wrap">
                                     <p className="text-sm font-medium text-slate-700">{review.user}</p>
-                                    <div className="flex">{Array(5).fill('').map((_, j) => <StarIcon key={j} size={12} fill={j < review.rating ? "#6366f1" : "#D1D5DB"} className="text-transparent" />)}</div>
+                                    <div className="flex">{Array(5).fill('').map((_, j) => <StarIcon key={j} size={12} fill={j < review.rating ? "#f97316" : "#D1D5DB"} className="text-transparent" />)}</div>
                                     <span className="text-xs text-slate-400">{review.date}</span>
                                 </div>
                                 <p className="text-xs text-orange-500 mt-0.5">{review.product}</p>

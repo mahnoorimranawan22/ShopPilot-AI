@@ -117,15 +117,15 @@ export default function AdminDashboard() {
                         <AreaChart data={data.revenueByMonth}>
                             <defs>
                                 <linearGradient id="adminRevGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#6366f1" stopOpacity={0.2} />
-                                    <stop offset="100%" stopColor="#6366f1" stopOpacity={0} />
+                                    <stop offset="0%" stopColor="#f97316" stopOpacity={0.2} />
+                                    <stop offset="100%" stopColor="#f97316" stopOpacity={0} />
                                 </linearGradient>
                             </defs>
                             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                             <XAxis dataKey="month" tick={{ fontSize: 11 }} stroke="#94a3b8" />
                             <YAxis tick={{ fontSize: 11 }} stroke="#94a3b8" />
                             <Tooltip contentStyle={{ borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '12px' }} />
-                            <Area type="monotone" dataKey="revenue" stroke="#6366f1" fill="url(#adminRevGrad)" strokeWidth={2} />
+                            <Area type="monotone" dataKey="revenue" stroke="#f97316" fill="url(#adminRevGrad)" strokeWidth={2} />
                         </AreaChart>
                     </ResponsiveContainer>
                 </SectionCard>

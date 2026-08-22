@@ -90,7 +90,7 @@ const ProductDescription = ({ product }) => {
                             <div className="flex items-center gap-1 mb-3">
                                 {[1, 2, 3, 4, 5].map(star => (
                                     <button key={star} onClick={() => setNewRating(star)} className="transition hover:scale-110">
-                                        <StarIcon size={22} fill={star <= newRating ? "#6366f1" : "#D1D5DB"} className="text-transparent" />
+                                        <StarIcon size={22} fill={star <= newRating ? "#f97316" : "#D1D5DB"} className="text-transparent" />
                                     </button>
                                 ))}
                                 <span className="text-xs text-slate-400 ml-2">{newRating}/5</span>
@@ -144,7 +144,7 @@ const ProductDescription = ({ product }) => {
                                         <div className="flex items-center gap-3">
                                             <div className="flex items-center">
                                                 {Array(5).fill('').map((_, idx) => (
-                                                    <StarIcon key={idx} size={14} className='text-transparent' fill={item.rating >= idx + 1 ? "#6366f1" : "#D1D5DB"} />
+                                                    <StarIcon key={idx} size={14} className='text-transparent' fill={item.rating >= idx + 1 ? "#f97316" : "#D1D5DB"} />
                                                 ))}
                                             </div>
                                             <p className="font-medium text-slate-800 text-sm">{item.user?.name || 'Anonymous'}</p>

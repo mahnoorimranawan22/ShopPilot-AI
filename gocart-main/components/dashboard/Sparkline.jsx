@@ -1,6 +1,6 @@
 'use client'
 
-export default function Sparkline({ data = [], color = '#6366f1', width = 80, height = 32 }) {
+export default function Sparkline({ data = [], color = '#f97316', width = 80, height = 32 }) {
     if (!data.length) return null
 
     const min = Math.min(...data)

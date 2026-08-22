@@ -27,9 +27,9 @@
     --brand-primary: #f97316;
     --brand-primary-hover: #ea580c;
     --brand-secondary: #e11d48;
-    --brand-accent: #7c3aed;
+    --brand-accent: #e11d48;
     --brand-accent-dark: #6d28d9;
-    --brand-gradient: linear-gradient(135deg, #f97316, #e11d48, #7c3aed);
+    --brand-gradient: linear-gradient(135deg, #f97316, #e11d48, #e11d48);
     --brand-surface: #fff7ed;
 }
 

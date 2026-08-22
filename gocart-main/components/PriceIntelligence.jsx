@@ -301,7 +301,7 @@ export function PriceTrendChart({ product }) {
                 <path d={areaD} fill="url(#priceAreaGrad)" />
 
                 {/* Price line */}
-                <path d={pathD} fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={pathD} fill="none" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
 
                 {/* Average line */}
                 <line
@@ -319,7 +319,7 @@ export function PriceTrendChart({ product }) {
                     cx={points[points.length - 1].x}
                     cy={points[points.length - 1].y}
                     r="5"
-                    fill="#6366f1"
+                    fill="#f97316"
                     stroke="white"
                     strokeWidth="2"
                 />
@@ -331,15 +331,15 @@ export function PriceTrendChart({ product }) {
                     textAnchor="middle"
                     fontSize="11"
                     fontWeight="bold"
-                    fill="#6366f1"
+                    fill="#f97316"
                 >
                     ${currentPrice}
                 </text>
 
                 <defs>
                     <linearGradient id="priceAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#6366f1" stopOpacity={0.15} />
-                        <stop offset="100%" stopColor="#6366f1" stopOpacity={0} />
+                        <stop offset="0%" stopColor="#f97316" stopOpacity={0.15} />
+                        <stop offset="100%" stopColor="#f97316" stopOpacity={0} />
                     </linearGradient>
                 </defs>
             </svg>

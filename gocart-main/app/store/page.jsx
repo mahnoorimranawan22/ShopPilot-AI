@@ -71,8 +71,8 @@ export default function Dashboard() {
 
                 // Category breakdown
                 categoryBreakdown: [
-                    { name: 'Earbuds', value: 35, color: '#6366f1' },
-                    { name: 'Headphones', value: 25, color: '#8b5cf6' },
+                    { name: 'Earbuds', value: 35, color: '#f97316' },
+                    { name: 'Headphones', value: 25, color: '#f43f5e' },
                     { name: 'Watches', value: 20, color: '#06b6d4' },
                     { name: 'Home', value: 12, color: '#10b981' },
                     { name: 'Other', value: 8, color: '#94a3b8' },
@@ -137,15 +137,15 @@ export default function Dashboard() {
                         <AreaChart data={data.revenueByMonth}>
                             <defs>
                                 <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#6366f1" stopOpacity={0.2} />
-                                    <stop offset="100%" stopColor="#6366f1" stopOpacity={0} />
+                                    <stop offset="0%" stopColor="#f97316" stopOpacity={0.2} />
+                                    <stop offset="100%" stopColor="#f97316" stopOpacity={0} />
                                 </linearGradient>
                             </defs>
                             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                             <XAxis dataKey="month" tick={{ fontSize: 11 }} stroke="#94a3b8" />
                             <YAxis tick={{ fontSize: 11 }} stroke="#94a3b8" />
                             <Tooltip contentStyle={{ borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '12px' }} />
-                            <Area type="monotone" dataKey="revenue" stroke="#6366f1" fill="url(#revGrad)" strokeWidth={2} />
+                            <Area type="monotone" dataKey="revenue" stroke="#f97316" fill="url(#revGrad)" strokeWidth={2} />
                         </AreaChart>
                     </ResponsiveContainer>
                 </SectionCard>
@@ -242,7 +242,7 @@ export default function Dashboard() {
                                     <p className="text-sm font-medium text-slate-700">{review.user}</p>
                                     <div className="flex">
                                         {Array(5).fill('').map((_, j) => (
-                                            <StarIcon key={j} size={12} fill={j < review.rating ? "#6366f1" : "#D1D5DB"} className="text-transparent" />
+                                            <StarIcon key={j} size={12} fill={j < review.rating ? "#f97316" : "#D1D5DB"} className="text-transparent" />
                                         ))}
                                     </div>
                                     <span className="text-xs text-slate-400">{review.time}</span>

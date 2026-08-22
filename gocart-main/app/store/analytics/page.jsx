@@ -72,7 +72,7 @@ export default function StoreAnalytics() {
                             <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="#94a3b8" />
                             <YAxis tick={{ fontSize: 12 }} stroke="#94a3b8" />
                             <Tooltip />
-                            <Area type="monotone" dataKey="sales" stroke="#6366f1" fill="#6366f120" strokeWidth={2} />
+                            <Area type="monotone" dataKey="sales" stroke="#f97316" fill="#f9731620" strokeWidth={2} />
                         </AreaChart>
                     </ResponsiveContainer>
                 </div>
@@ -86,7 +86,7 @@ export default function StoreAnalytics() {
                             <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="#94a3b8" />
                             <YAxis tick={{ fontSize: 12 }} stroke="#94a3b8" />
                             <Tooltip />
-                            <Bar dataKey="orders" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                            <Bar dataKey="orders" fill="#f43f5e" radius={[4, 4, 0, 0]} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>

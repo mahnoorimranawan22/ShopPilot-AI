@@ -29,7 +29,7 @@ const Hero = () => {
                     className='relative flex-1 flex flex-col bg-gradient-to-br from-orange-50 via-white to-rose-50 border border-orange-100 rounded-3xl xl:min-h-100 group overflow-hidden'
                 >
                     {/* Subtle grid pattern */}
-                    <div className='absolute inset-0 opacity-[0.03]' style={{ backgroundImage: 'radial-gradient(circle, #6366f1 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+                    <div className='absolute inset-0 opacity-[0.03]' style={{ backgroundImage: 'radial-gradient(circle, #f97316 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
                     {/* Animated gradient blob */}
                     <motion.div
