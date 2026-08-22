@@ -29,8 +29,8 @@ export const sanitizeInput = (req, res, next) => {
     next()
 }
 
-function sanitizeObject(obj) {
-    if (typeof obj !== 'object' || obj === null) return obj
+function sanitizeObject(obj, depth = 0) {
+    if (typeof obj !== 'object' || obj === null || depth > 10) return obj
 
     const sanitized = Array.isArray(obj) ? [] : {}
 
@@ -46,7 +46,7 @@ function sanitizeObject(obj) {
                 .replace(/javascript:/gi, '')
                 .trim()
         } else if (typeof value === 'object' && value !== null) {
-            sanitized[key] = sanitizeObject(value)
+            sanitized[key] = sanitizeObject(value, depth + 1)
         } else {
             sanitized[key] = value
         }
@@ -119,19 +119,22 @@ export const protectAPIKeys = (req, res, next) => {
     const originalJson = res.json.bind(res)
 
     res.json = (data) => {
-        if (data && typeof data === 'object') {
-            // Remove any API key fields from responses
-            const cleaned = removeSensitiveFields(data)
-            return originalJson(cleaned)
-        }
+        try {
+            if (data && typeof data === 'object') {
+                // Convert to plain object first (safe for Mongoose docs)
+                const plain = JSON.parse(JSON.stringify(data))
+                const cleaned = removeSensitiveFields(plain)
+                return originalJson(cleaned)
+            }
+        } catch {}
         return originalJson(data)
     }
 
     next()
 }
 
-function removeSensitiveFields(obj) {
-    if (typeof obj !== 'object' || obj === null) return obj
+function removeSensitiveFields(obj, depth = 0) {
+    if (typeof obj !== 'object' || obj === null || depth > 10) return obj
 
     const sensitiveKeys = [
         'apiKey', 'api_key', 'secret', 'token', 'password',
@@ -145,7 +148,7 @@ function removeSensitiveFields(obj) {
         if (sensitiveKeys.some(sk => key.toLowerCase().includes(sk.toLowerCase()))) {
             cleaned[key] = '[REDACTED]'
         } else if (typeof value === 'object' && value !== null) {
-            cleaned[key] = removeSensitiveFields(value)
+            cleaned[key] = removeSensitiveFields(value, depth + 1)
         } else {
             cleaned[key] = value
         }
